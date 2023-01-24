@@ -10,22 +10,22 @@
 
 
 
-#Organization and Name Scheme
+# Organization and Name Scheme
 
 
-#Version-Control Procedures
+# Version-Control Procedures
 
 
-#Tool stack description and setup procedure
+# Tool stack description and setup procedure
 
 
-#Build Instructions
+# Build Instructions
 
 
-#Unit testing instructions
+# Unit testing instructions
 
 
-#System testing instructions
+# System testing instructions
 
 
-#Other
+# Other
