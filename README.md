@@ -7,3 +7,25 @@
 # Ethan Christensen
 
 # Benson Riley
+
+
+
+#Organization and Name Scheme
+
+
+#Version-Control Procedures
+
+
+#Tool stack description and setup procedure
+
+
+#Build Instructions
+
+
+#Unit testing instructions
+
+
+#System testing instructions
+
+
+#Other
