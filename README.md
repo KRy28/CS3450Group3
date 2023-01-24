@@ -31,7 +31,7 @@ git - Code storage and collaboration software
 
 Jira - Scrumand task managment software
 
-Djengo - Backend and some frontend for website
+Django - Backend and some frontend for website
 
 Optional:
 
