@@ -24,6 +24,11 @@ Manager - can interact with money
 
 # Version-Control Procedures
 
+main will be tested and deployable
+
+dev will be the base for new features and fixes
+
+branches for specific features will be branched from dev. 
 
 # Tool stack description and setup procedure
 
@@ -31,11 +36,11 @@ git - Code storage and collaboration software
 
 Jira - Scrumand task managment software
 
-Django - Backend and some frontend for website
+Node.js - backend
 
-Optional:
+SQLite3 - database
 
-Vue - could ad more interactive elements to frontend
+Vue - frontend
 
 # Build Instructions
 
