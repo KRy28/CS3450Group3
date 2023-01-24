@@ -1,13 +1,13 @@
-#Summary
+# Summary
 
 
-#Team Organization
+# Team Organization
 
 
-#Software Development Process
+# Software Development Process
 
 
-#Policies, Procedures, and Tools For Communication
+# Policies, Procedures, and Tools For Communication
 
 
-#Risk Analysis
+# Risk Analysis
