@@ -1,12 +1,13 @@
 # CS3450Group3
 =======
-# Jaxson Madison
+# Group Members
+Jaxson Madison
 
-# Jayden Lintz
+Jayden Lintz
 
-# Ethan Christensen
+Ethan Christensen
 
-# Benson Riley
+Benson Riley
 
 
 
