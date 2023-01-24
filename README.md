@@ -1,6 +1,6 @@
 # CS3450Group3
 =======
-# Group Members
+## Group Members
 Jaxson Madison
 
 Jayden Lintz
