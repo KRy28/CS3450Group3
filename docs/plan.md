@@ -36,7 +36,7 @@ interactions, and behaviors.
 ## Policies, Procedures, and Tools For Communication
 We will be using discord for all text, voice, and video communication.
 
-We will have a standup meeting every Monday and Wednesday at 6:00 PM. This will be done over a voice call.
+We will have a standup meeting every Monday and Wednesday at 6:00 PM. This will be done over a voice call. If we have any problems, Jaxson will organize another meeting.
 
 ## Configuration Management
 See the README.md in the Git repository.
