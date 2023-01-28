@@ -9,46 +9,49 @@ Ethan Christensen
 
 Benson Riley
 
+## Organization
+This project is split into Frontend and Backend applications.
 
+The Frontend Application will be what our users will interact with.
 
-# Organization and Name Scheme
+The Backend Application will keep all business logic in sqlite databases.
+It will expose an API for accessing and modifying the database to privileged users.
 
-for Users:
+## Version-Control Procedures
 
-User - any basic user with the ability to rent cars
+The `main` branch will always be tested and deployable
 
-Employee - can Valay and interact with cars and inventory?
+The `develop` branch will be the base for new features and fixes
 
-Manager - can interact with money
+Branches for specific features will be based from `dev`.
+These follow a naming scheme: `DCR-{ticket #}_Ticket_Description
 
-
-# Version-Control Procedures
-
-main will be tested and deployable
-
-dev will be the base for new features and fixes
-
-branches for specific features will be branched from dev. 
-
-# Tool stack description and setup procedure
+## Tool stack description and setup procedure
 
 git - Code storage and collaboration software
 
-Jira - Scrumand task managment software
+Jira - Scrum and task management software
 
-Node.js - backend
+Node.js - Backend JS runtime
 
-SQLite3 - database
+sqlite3 - Database software
 
-Vue - frontend
+Vue - Frontend UI
+
+Cypress + Mocha - Testing Framework
 
 # Build Instructions
 
+Open a command shell in the root directory of the project and run the following commands:
+```sh
+cd "App Frontend"
+npm run dev
 
-# Unit testing instructions
+cd ..
 
-
-# System testing instructions
-
-
-# Other
+cd "App Backend"
+npm run dev
+```
+# Testing instructions
+**TODO** We will use Cypress for testing. Look in package.json files to see what different scripts
+have already been generated.
