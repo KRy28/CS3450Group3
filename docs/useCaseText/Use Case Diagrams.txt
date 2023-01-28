@@ -1,0 +1,37 @@
+﻿Name: Increase Account Balance
+Participating Actor: Customer
+Entry condition:
+* Customer has an account with us
+* Customer is logged in
+Exit condition: 
+* Customer account balance increased
+Event flow:
+1. Customer selects the option to increase their account balance
+2. Customer decides how much they want to increase their balance
+3. The desired amount is added to their balance
+
+
+Name: View Car Details
+Participating Actors: Customer, Employee, Manager
+Entry condition:
+* Actor has an account with us
+* Actor is logged in
+Exit condition:
+* Actor is done viewing car details
+Event flow:
+1. Actor selects a list of available cars
+2. Actor chooses a car to view more details about
+3. Specific details about the car pop up
+
+
+Name: Authenticate Customer
+Participating Actors: Customer
+Entry condition:
+* Customer has an account set up
+* Customer inputs the correct username and password
+Exit condition:
+* Customer logs out
+Event flow:
+1. Open up the car rental website
+2. Click login
+3. Enter the correct login info
