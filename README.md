@@ -1,5 +1,4 @@
-# CS3450Group3
-=======
+# CS3450Group3: Dan's Car Rental
 ## Group Members
 Jaxson Madison
 
@@ -9,46 +8,76 @@ Ethan Christensen
 
 Benson Riley
 
+## Organization
+This project is split into Frontend and Backend applications.
 
+The Frontend Application will be what our users will interact with.
 
-# Organization and Name Scheme
+The Backend Application will keep all business logic in sqlite databases.
+It will expose an API for accessing and modifying the database to privileged users.
 
-for Users:
+## Version-Control Procedures
 
-User - any basic user with the ability to rent cars
+The `main` branch will always be tested and deployable
 
-Employee - can Valay and interact with cars and inventory?
+The `develop` branch will be the base for new features and fixes
 
-Manager - can interact with money
+Branches for specific features will be based from `dev`.
+These follow a naming scheme: `DCR-{ticket #}_Ticket_Description`
 
+## Tool stack description and setup procedure
 
-# Version-Control Procedures
+`git` - Code storage and collaboration software
 
-main will be tested and deployable
+`Jira` - Scrum and task management software
 
-dev will be the base for new features and fixes
+`Node.js` - Backend JS runtime
 
-branches for specific features will be branched from dev. 
+`sqlite3` - Database software
 
-# Tool stack description and setup procedure
+`Vue` - Frontend UI
 
-git - Code storage and collaboration software
+`Cypress` + `Mocha` - Testing Framework
 
-Jira - Scrumand task managment software
+## Build Instructions
 
-Node.js - backend
+### First time
+1. Make sure you have Node and npm installed.
 
-SQLite3 - database
+2. Clone the repository to your machine, and open a command shell in the root directory of the project.
 
-Vue - frontend
+3. To install all of the dependencies, run the following commands:
+```sh
+# Navigate to App Frontend
+cd "App Frontend"
+npm install
+cd ..
 
-# Build Instructions
+# Navigate to App Backend
+cd "App Backend"
+npm install
+cd ..
+```
 
+*Note:* When dependencies of this project change, `npm install` needs to be run again in each app directory.
 
-# Unit testing instructions
+### Starting the Apps
 
+1. If you haven't already, complete the first-time instructions in the previous section
+2. Open two command shells from the root directory of the project.
+3. In the first shell, run these commands:
+```sh
+cd "App Frontend"
+npm run dev
+```
+4. In the other shell, run these commands:
+```sh
+cd "App Backend"
+npm run dev
+```
 
-# System testing instructions
-
-
-# Other
+The frontend can be accessed at http://localhost:5713
+The backend can be accessed at http://localhost:3000 
+## Testing instructions
+**TODO** We will use Cypress for testing. Look in package.json files to see what different scripts
+have already been generated.
