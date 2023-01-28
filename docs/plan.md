@@ -38,5 +38,18 @@ We will be using discord for all text, voice, and video communication.
 
 We will have a standup meeting every Monday and Wednesday at 6:00 PM. This will be done over a voice call. If we have any problems, Jaxson will organize another meeting.
 
+## Risk Analysis 
+for devs:
+
+If a meeting is missed or more meeting time is needed we can meet during class time while other groups are meeting with dan. we also can use Saturday at 10:00am and Thursday at 3:30 as emergancy times. These times will be planned when needed by Jaxson. 
+
+Vue was selected as a front end we are all familiar with so that we may work efectivly in later stages if our group members are unable to attend a meeting. We will also be gathering resoures so we can still work on backend projects as a means of finishing these tasks in a time crunch. 
+
+for users: 
+
+No real money or credit will be used in the site. All passwords will be stored using secure means like hashes, if these hashes were to be released we would need to inform the users. 
+
+User Access restrictions will be put in place to keep site functions protected as explained in the use case diagrams. Password authentication  will be used to verify users and their permissions.
+
 ## Configuration Management
 See the README.md in the Git repository.
