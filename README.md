@@ -21,6 +21,8 @@ Branches: `DCR-{ticket #}_Ticket_Description`
 
 Diagrams: `UseCaseName.png`
 
+Program files will use camelCase
+
 
 ## Version-Control Procedures
 
