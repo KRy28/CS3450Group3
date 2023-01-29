@@ -18,7 +18,10 @@ It will expose an API for accessing and modifying the database to privileged use
 
 #### Name Scheme
 Branches: `DCR-{ticket #}_Ticket_Description`
+
 Diagrams: `UseCaseName.png`
+
+Program files will use camelCase
 
 
 ## Version-Control Procedures
