@@ -16,8 +16,10 @@ The Frontend Application will be what our users will interact with.
 The Backend Application will keep all business logic in sqlite databases.
 It will expose an API for accessing and modifying the database to privileged users.
 
-### Name Scheme
+#### Name Scheme
 Branches: `DCR-{ticket #}_Ticket_Description`
+Diagrams: `UseCaseName.png`
+
 
 ## Version-Control Procedures
 
