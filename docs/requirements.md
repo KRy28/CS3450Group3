@@ -1,6 +1,6 @@
 # Requirements
 
-## intro
+## Intro
 Dan's car shop is a rental car service that will rent out cars online through a webpage. 
 
 ## Organization
