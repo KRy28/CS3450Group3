@@ -35,3 +35,18 @@ Event flow:
 1. Open up the car rental website
 2. Click login
 3. Enter the correct login info
+
+
+Name: Search Cars
+Participating Actors: Customer
+Entry condition:
+* Customer clicks on search bar
+Exit condition:
+* Customer 
+Event flow:
+1. Open up the car rental website
+2. Click on the "Search Cars" bar
+3. Type name of car or create a search filter
+4. Press enter or click search button to search
+5. User is taken to a page with search results
+6. Select a car to view details about it
