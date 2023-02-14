@@ -63,6 +63,8 @@ cd ..
 # Navigate to App Backend
 cd "App Backend"
 npm install
+npm run db:migrate
+npm run db:seed
 cd ..
 ```
 
@@ -81,6 +83,11 @@ npm run dev
 ```sh
 cd "App Backend"
 npm run dev
+```
+5. If there are changes to the database, run:
+```sh
+cd "App Backend"
+npm run db:migrate
 ```
 
 The frontend can be accessed at http://localhost:5713
