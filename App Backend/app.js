@@ -8,6 +8,21 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: 'database/database_development'
+});
+
+setImmediate(async () => {
+  try {
+    await sequelize.authenticate()
+    console.log('sequelize has been authenticated')
+  } catch (err) {
+    console.log('sequelize was not authenticated', err)
+  }
+})
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

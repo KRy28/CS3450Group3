@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-const { User } = require('../database/models')
+const { Car } = require('../database/models')
 
 router.get('/', function(req, res, next) {
   res.json(['/json', '/string']);
 });
 
 router.get('/json', async function(req, res, next) {
-  const users = await User.findAll()
-  res.json(users);
+  const cars = await Car.findAll()
+  res.json(cars);
 });
 
 router.get('/string', async function(req, res, next) {
-  const users = await User.findAll()
-  res.send(users.map(u => u.firstName).join(', '));
+  const cars = await Car.findAll()
+  res.send(cars.map(c => `${c.make} ${c.model} ${c.year}`).join(', '));
 });
 
 module.exports = router;
