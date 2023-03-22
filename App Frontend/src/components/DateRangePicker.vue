@@ -1,51 +1,50 @@
 <!-- src/components/DateRangePicker.vue -->
 <!-- Define the template for the component -->
 <template>
-    <div class="date-range-picker">
-      <h1>Car Rental Date Range Picker</h1>
-      <!-- Input field for the start date, bound to the startDate property and with a minimum date of minDate -->
-      <div class="input-wrapper">
-        <label for="start-date">Start Date:</label>
-        <input id="start-date" type="date" v-model="startDate" :min="minDate" @input="checkDates" />
-      </div>
-      <!-- Input field for the end date, bound to the endDate property and with a minimum date of either startDate or minDate -->
-      <div class="input-wrapper">
-        <label for="end-date">End Date:</label>
-        <input id="end-date" type="date" v-model="endDate" :min="startDate || minDate" @input="checkDates" />
-      </div>
-      <!-- Display a summary of the selected dates if both start and end dates are selected -->
-      <div v-if="startDate && endDate" class="summary">
-        <p>Start Date: {{ formattedStartDate }}</p>
-        <p>End Date: {{ formattedEndDate }}</p>
-        <p>Total Days: {{ totalDays }}</p>
-      </div>
+  <div class="date-range-picker">
+    <h1>Car Rental Date Range Picker</h1>
+
+    <v-date-picker
+      mode="range"
+      v-model="dateRange"
+      :min-date="minDate"
+      :attributes="attributes"
+      @input="checkDates"
+    ></v-date-picker>
+
+    <div v-if="startDate && endDate" class="summary">
+      <p>Start Date: {{ formattedStartDate }}</p>
+      <p>End Date: {{ formattedEndDate }}</p>
+      <p>Total Days: {{ totalDays }}</p>
     </div>
-  </template>
-  
+  </div>
+</template>
+
   <script>
+  import Vue from "vue";
+
+  // import DatePicker from 'v-calendar/lib/components/date-picker.umd'
+  // import 'v-calendar/lib/v-calendar.min.css'
+  //import VCalendar from "v-calendar";
+  
+  Vue.use(VCalendar);
+  
   export default {
     // Define the data properties of the component
     data() {
-      return {
-        startDate: "", // Start date input value
-        endDate: "", // End date input value
-        minDate: "", // Minimum date for the date picker
-      };
-    },
-    
-    // Called when the component is mounted to the DOM
-    mounted() {
-      this.minDate = this.tomorrow(); // Set the minimum date to tomorrow
-    },
-    
-    // Computed properties that are calculated based on other data properties
+  return {
+    dateRange: { start: null, end: null }, // Date range object for V-Calendar
+    minDate: null, // Minimum date for the date picker
+  };
+},
+
     computed: {
-      formattedStartDate() {
-        return this.formatDate(this.startDate); // Format the start date
-      },
-      formattedEndDate() {
-        return this.formatDate(this.endDate); // Format the end date
-      },
+    startDate() {
+        return this.dateRange.start;
+    },
+    endDate() {
+        return this.dateRange.end;
+    },
       totalDays() {
         if (!this.startDate || !this.endDate) {
           return 0; // If either date is not set, return 0
@@ -55,6 +54,9 @@
         const end = new Date(this.endDate);
         return (end - start) / (1000 * 60 * 60 * 24) + 1;
       },
+    },
+    mounted() {
+  this.minDate = this.tomorrow(); // Set the minimum date to tomorrow
     },
     
     // Methods that can be called by the component
@@ -79,17 +81,15 @@
         return tomorrow.toISOString().split("T")[0];
       },
       checkDates() {
-        if (this.startDate && this.endDate) {
-          if (this.startDate > this.endDate) {
-            // Show an alert if the end date is earlier than the start date
-            alert("End date should be greater than or equal to start date.");
-            this.endDate = "";
-          } else {
-            // Emit an event to notify the parent component that a valid date range is selected
-            this.$emit("date-range-selected", {
-              startDate: this.startDate,
-              endDate: this.endDate,
-            });
+    if (this.startDate && this.endDate) {
+      if (this.startDate > this.endDate) {
+        alert("End date should be greater than or equal to start date.");
+        this.dateRange = { start: this.startDate, end: null };
+      } else {
+        this.$emit("date-range-selected", {
+          startDate: this.startDate,
+          endDate: this.endDate,
+        });
           }
         }
       },
