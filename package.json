@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "v-calendar": "^2.4.1"
+    "@popperjs/core": "^2.11.6",
+    "v-calendar": "^3.0.1",
+    "vue2-daterange-picker": "^0.6.8"
   }
 }

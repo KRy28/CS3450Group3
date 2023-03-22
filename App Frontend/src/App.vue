@@ -13,7 +13,7 @@ import { RouterLink, RouterView } from "vue-router";
 import TheNavigationBar from "./components/TheNavigationBar.vue";
 export default {
   components: {
-    TheNavigationBar
+    TheNavigationBar,
   },
   data () {
     return {
