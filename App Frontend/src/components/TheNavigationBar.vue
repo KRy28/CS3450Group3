@@ -1,8 +1,7 @@
 <template>
   <nav>
     <RouterLink class="link" to="/">Home</RouterLink>
-    <RouterLink class="link" to="/about">About</RouterLink>
-    <RouterLink class="link" to="/contact">Contact</RouterLink>
+    <RouterLink class="link" to="/aboutContact">About/Contact</RouterLink>
     <RouterLink class="link" to="/search">Search</RouterLink>
     <RouterLink class="link" to="/login">Login</RouterLink>
   </nav>
