@@ -1,7 +1,7 @@
-<!-- src/App.vue -->
+<!-- src/views/CalendarView.vue -->
 <template>
   <div id="app">
-    <DateRangePicker />
+    <DateRangePicker class="centered" />
   </div>
 </template>
 
@@ -14,3 +14,13 @@ export default {
   },
 };
 </script>
+
+<style>
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+</style>
