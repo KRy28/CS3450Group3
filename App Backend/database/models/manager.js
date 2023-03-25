@@ -1,3 +1,4 @@
+
 'use strict';
 const {
   Model
@@ -11,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Manager.hasOne(person)
+      Manager.hasOne(models.Person)
     }
   }
-  User.init({
+  Manager.init({
      hours: DataTypes.FLOAT,
      payRate: DataTypes.FLOAT
 

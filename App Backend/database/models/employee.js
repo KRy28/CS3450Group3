@@ -11,9 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Employee.hasOne(models.Person);
     }
   }
-  User.init({
+  Employee.init({
     hours: DataTypes.FLOAT,
     payRate: DataTypes.FLOAT,
   }, {

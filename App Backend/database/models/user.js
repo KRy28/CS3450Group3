@@ -1,3 +1,4 @@
+
 'use strict';
 const {
   Model
@@ -11,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(person); 
+      User.hasOne(models.Person); 
     }
   }
   User.init({
