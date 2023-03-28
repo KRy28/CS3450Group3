@@ -7,6 +7,10 @@ module.exports = {
        firstName: 'Dan',
        lastName: 'Watson',
        email: 'danwatson@dcarbarn.com',
+       hash: "12345678SUM",
+       username: "WatsonMan",
+       wallet: 42069,
+       elevation: 3,
        createdAt: new Date(),
        updatedAt: new Date()
     },
