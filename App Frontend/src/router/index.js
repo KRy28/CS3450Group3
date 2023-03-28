@@ -39,11 +39,14 @@ const router = createRouter({
       component: () => import("../views/DetailView.vue"),
     },
     {
+      path: "/cart",
+      name: "cart",
+      component: () => import("../views/CartView.vue"),
+    },
       path: "/calendar",
       name: "calendar",
       component: () => import("../views/CalendarView.vue"),
     },
-    
   ],
 });
 
