@@ -1,0 +1,23 @@
+Feb 17th
+
+Together:
+
+Ethan:
+Taught a bit of vue.
+
+Jayden:
+Learning vue.
+
+Benson:
+Work on car details page, will need api to finish. 
+Learning sequelize.
+
+Jaxson:
+Some basic questions on login.
+Will need later api work after authentication is done.
+
+
+Notes:
+Mentioned spring break.
+Little change from last meeting do to short time between. 
+Our sub ticket method of dividing tickets end up making the burn down awkward and only would adjust when large ticket groups were resolved.

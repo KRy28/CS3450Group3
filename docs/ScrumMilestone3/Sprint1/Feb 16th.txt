@@ -1,0 +1,23 @@
+Feb 16th 
+
+Together:
+Created tickets in Plan 
+Ethan:
+Taught backend and helped setup nice to haves like language servers.
+
+Jayden:
+Setup device for vue and npm.
+Took landing page 
+
+Benson:
+Notes and setup scrum board
+Took car details page 
+
+Jaxson:
+Setup device for vue and npm.
+Finish login frontend
+
+Notes:
+Learning backend possible cross platform issues with Linux, windows and max machines in the mix. Architecture ideas settle on default front and backend.
+
+

@@ -1,0 +1,20 @@
+Feb 28th
+
+Together:
+Made some tickets for sprint in 
+
+Ethan:
+Taught vue and non working on backend starter.
+
+Jayden:
+Finished landing page
+Figuring out static background image 
+
+Benson:
+Finished 
+
+Jaxson:
+Finish login frontend
+
+Notes:
+Talked with Dan and suggested the backend and frontend work with each other.
