@@ -29,8 +29,8 @@ import TheWelcome from "../components/TheWelcome.vue";
             <h1>Dan's Car Barn</h1>
             <h2>Rent-A-Car</h2>
             <RouterLink class="buttons" to="/search">Search </RouterLink>
-            <RouterLink class="buttons" to="/about">About Us</RouterLink>
-            <RouterLink class="buttons" to="/contact">Contact Us</RouterLink>
+            <RouterLink class="buttons" to="/aboutContact">About Us</RouterLink>
+            <RouterLink class="buttons" to="/aboutContact">Contact Us</RouterLink>
             <RouterLink class="buttons" to="/login">Log In</RouterLink>
       </center>
   </div>

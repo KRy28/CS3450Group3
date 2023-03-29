@@ -34,8 +34,9 @@ const router = createRouter({
       component: () => import("../views/LoginView.vue"),
     },
     {
-      path: "/details",
+      path: "/details/:id",
       name: "details",
+      
       component: () => import("../views/DetailView.vue"),
     },
     {
@@ -43,11 +44,12 @@ const router = createRouter({
       name: "cart",
       component: () => import("../views/CartView.vue"),
     },
+    {
       path: "/calendar",
       name: "calendar",
       component: () => import("../views/CalendarView.vue"),
     },
-  ],
+  ]
 });
 
 export default router;

@@ -49,8 +49,8 @@ export default {
                     <img :src="item.image" style="height:100px">
                   </div>
                   <div class="text">
-                    <RouterLink class="navigateButton" to="/CarDetails"><p><strong>{{ item.car }}</strong></p></RouterLink>
-                    <p>Dates Rented: {{ item.dates }}</p>
+                    <RouterLink class="navigateButton" :to="`/details/${item.car}`"><p><strong>{{ item.car }}</strong></p></RouterLink>
+                    <RouterLink class="navigateButton" to="/calendar"><p>Dates Rented: {{ item.dates }}</p></RouterLink>
                     <p>Cost: ${{ item.cost.toLocaleString('en', {useGrouping:true}) }}/Day</p>
                   </div>
                   <div>

@@ -4,6 +4,8 @@
     <RouterLink class="link" to="/aboutContact">About/Contact</RouterLink>
     <RouterLink class="link" to="/search">Search</RouterLink>
     <RouterLink class="link" to="/login">Login</RouterLink>
+    <RouterLink class="link" to="/cart">Cart</RouterLink>
+
   </nav>
 </template>
 
