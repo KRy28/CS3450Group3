@@ -1,0 +1,20 @@
+Plan Sprint 1 Dev: 
+
+Beginning and end:
+Ends: March 1
+Hours: in meeting 3, out meeting 6 for 9*4 = 36 hours (assuming 3 meetings and 2 hr work between meetings)
+We will all be available to work, will probably need to meet over discord due to meeting places and transportation.
+Metric for retrospective: learning and work done? Idk
+
+Benson is Scrum Master.
+Everyone was here
+Ethan, Jaxson, Jayden.
+
+
+Stories:
+Marked in jira.
+
+https://soft-dev-three.atlassian.net/
+
+Artefacts:
+￼

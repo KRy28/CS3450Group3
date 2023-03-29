@@ -1,0 +1,18 @@
+Feb 23rd 
+
+Ethan:
+More vue, made a starting page for everyone to use.
+
+Jayden:
+Used starting page to begin the landing and contact page.
+
+Benson:
+Used starting to begin the details page (will need api integration to work properly) 
+
+Jaxson:
+Progress on login.
+
+Notes:
+A smaller progress meeting just talked a bit in discord and some jira stuff.
+
+Moved items not in current sprint to make the board more accurate and added story points to a ticket we missed. 
