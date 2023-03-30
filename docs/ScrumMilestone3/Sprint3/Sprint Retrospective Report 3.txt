@@ -1,0 +1,29 @@
+﻿Sprint Retrospective Report 3
+* Sprint Duration: 1 week
+* Team Members: Benson (Scrum Master), Jaxson, Ethan, Jayden
+Attendance: All team members present
+1. What went well:
+* Completed the Car List Page, offering users an organized and visually appealing view of available cars.
+* Successfully implemented Authentication and User Permissions, ensuring a secure and role-based user experience.
+* Developed a Dynamic Cart that adjusts to user selections, enhancing user interaction with the platform.
+* Created informative About and Contact Pages, providing users with relevant company and contact details.
+* Built Userish Models, streamlining the handling of user-related data and functionality.
+* Designed a Car Calendar Widget, making it easier for users to view car availability and plan accordingly.
+2. What didn't go well:
+* Encountered difficulties in optimizing the Car List Page for different devices, leading to additional time spent on adjustments.
+* Faced challenges in setting up and testing User Permissions, causing delays in other tasks.
+* Integration between the Dynamic Cart and backend systems proved to be more complex than initially anticipated.
+3. Specific things to improve:
+* Allocate more time for testing and optimizing UI components on different devices to ensure a consistent user experience.
+* Improve collaboration between team members working on interconnected tasks, such as User Permissions and Userish Models.
+* Implement regular code reviews to catch integration issues early and reduce the need for extensive rework.
+4. Measurement criteria:
+* Task completion and quality (40%)
+* Collaboration and communication (30%)
+* Problem-solving and innovation (20%)
+* Adherence to timelines and attendance (10%)
+5. Percentage assigned to each team member:
+* Benson (Scrum Master): 25%
+* Jaxson: 25%
+* Ethan: 25%
+* Jayden: 25%
