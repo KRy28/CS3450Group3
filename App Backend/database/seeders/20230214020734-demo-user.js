@@ -55,47 +55,47 @@ module.exports = {
        updatedAt: new Date()
     }
     ],{});
-    await queryInterface.bulkInsert('Employee', [
+    /*await queryInterface.bulkInsert('Employees', [
     {
-       user_id: (ppl-2),
+       employee_id: (ppl-2),
        createdAt: new Date(),
        updatedAt: new Date()
     },
     {  
-       user_id: (ppl-1),
+       employee_id: (ppl-1),
        createdAt: new Date(),
        updatedAt: new Date()
     }, 
     {   
-       user_id: ppl,
+       employee_id: ppl,
        createdAt: new Date(),
        updatedAt: new Date()
     }
    
     ],{});
-    await queryInterface.bulkInsert('Manager', [
+    await queryInterface.bulkInsert('Managers', [
     {
-       user_id: (ppl-2),
+       manager_id: (ppl-2),
        createdAt: new Date(),
        updatedAt: new Date()
     },
     {  
-       user_id: (ppl-1),
+       manager_id: (ppl-1),
        createdAt: new Date(),
        updatedAt: new Date()
     }, 
     {   
-       user_id: ppl,
+       manager_id: ppl,
        createdAt: new Date(),
        updatedAt: new Date()
     }
-    ],{});
+    ],{});*/
   },
 
   async down (queryInterface, Sequelize) {
     await queryInterface.bulkDelete('People', null, {});
     await queryInterface.bulkDelete('Users', null, {});
-    await queryInterface.bulkDelete('Employee', null, {});
-    await queryInterface.bulkDelete('Manager', null, {});
+    await queryInterface.bulkDelete('Employees', null, {});
+    await queryInterface.bulkDelete('Managers', null, {});
   }
 };
