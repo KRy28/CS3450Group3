@@ -95,3 +95,7 @@ The backend can be accessed at http://localhost:3000
 ## Testing instructions
 **TODO** We will use Cypress for testing. Look in package.json files to see what different scripts
 have already been generated.
+
+## Scrum documents
+
+They can be found in docs/scrumMilestone3/
