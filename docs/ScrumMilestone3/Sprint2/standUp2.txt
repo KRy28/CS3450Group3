@@ -1,0 +1,5 @@
+﻿Stand-up Meeting Report for Sprint 2
+* Reviewed progress on the Landing Page, Login Page, Navigation Bar, and Car List Page.
+* Discussed the responsive design issues and decided to allocate extra time for testing and adjustments.
+* Talked about uneven workload distribution and agreed to prioritize tasks more effectively during the next sprint planning.
+* Addressed challenges faced in integrating the Car List Page with the backend and brainstormed potential solutions.
