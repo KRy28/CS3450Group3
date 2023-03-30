@@ -14,7 +14,7 @@ router.get('/json', async function(req, res, next) {
 
 router.get('/string', async function(req, res, next) {
   const cars = await Car.findAll()
-  res.send(cars.map(c => `${c.make} ${c.model} ${c.year}`).join(', '));
+  res.send(cars.map(c => `${c.make} ${c.model} ${c.year} ${c.condition} ${c.description} ${c.rate} ${c.image}`).join(', '));
 });
 
 module.exports = router;
