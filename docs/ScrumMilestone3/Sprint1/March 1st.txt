@@ -1,0 +1,22 @@
+March 1st 
+
+Team:
+Made tickets and planned sprint. Nothing was assigned until we could all meet
+
+Ethan:
+Clarified background images and mentioned components 
+
+Jaxson:
+
+
+Jayden:
+Brought up findings on backgrounds
+
+Benson:
+Took notes finished some ticket ideas up with Ethan.
+Working on understanding sequelize for backend. 
+
+Notes:
+Fairly short meeting mostly to catch up and find out what everyone was interested in 
+
+Burn down:

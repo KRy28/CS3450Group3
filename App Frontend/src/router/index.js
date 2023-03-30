@@ -10,14 +10,46 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/aboutContact",
+      name: "aboutContact",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"),
+      component: () => import("../views/AboutContactView.vue"),
     },
-  ],
+    {
+      path: "/search",
+      name: "search",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/SearchView.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import("../views/LoginView.vue"),
+    },
+    {
+      path: "/details/:id",
+      name: "details",
+      
+      component: () => import("../views/DetailView.vue"),
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      component: () => import("../views/CartView.vue"),
+    },
+    {
+      path: "/calendar",
+      name: "calendar",
+      component: () => import("../views/CalendarView.vue"),
+    },
+  ]
 });
 
 export default router;
