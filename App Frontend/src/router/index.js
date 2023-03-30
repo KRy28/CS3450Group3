@@ -49,6 +49,11 @@ const router = createRouter({
       name: "calendar",
       component: () => import("../views/CalendarView.vue"),
     },
+    {
+      path: "/list",
+      name: "list",
+      component: () => import("../views/CarListView.vue")
+    }
   ]
 });
 
