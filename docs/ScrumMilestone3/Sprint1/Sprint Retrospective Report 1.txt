@@ -1,0 +1,28 @@
+﻿Sprint Retrospective Report 1
+Sprint Duration: 1 week
+Team Members: Benson (Scrum Master), Jaxson, Ethan, Jayden
+Attendance: All team members present
+1. What went well:
+* Successfully completed UML diagrams, which helped clarify the system architecture and requirements.
+* Developed a functional Toy Express Server, enhancing the project's foundation.
+* Completed both high-level and low-level design tasks, providing a solid roadmap for implementation.
+* Implemented a Database Prototype, paving the way for efficient data management.
+* Effectively managed the Git backlog, ensuring a smooth development process.
+2. What didn't go well:
+* Some confusion arose while creating activity diagrams, leading to revisions and extra hours spent.
+* Time spent on the activity diagram for the car component was more than initially estimated.
+* Slight miscommunication between team members resulted in duplicated efforts on certain tasks.
+3. Specific things to improve:
+* Ensure clear communication channels and update progress regularly to avoid duplicated work.
+* Refine the estimation process to allocate sufficient time for complex tasks like activity diagrams.
+* Encourage peer reviews during the design phase to identify potential issues early and minimize rework.
+4. Measurement criteria:
+* Task completion and quality (40%)
+* Collaboration and communication (30%)
+* Creativity and problem-solving (20%)
+* Adherence to timelines and attendance (10%)
+5. Percentage assigned to each team member:
+* Benson (Scrum Master): 25%
+* Jaxson: 25%
+* Ethan: 25%
+* Jayden: 25%
