@@ -1,0 +1,25 @@
+March 2cd:
+Ethan:
+Helped with learning CSS functions and components in vue.
+Assigned Authentication and a car list page
+Jaxson:
+Made login page 
+Assigned car calendar 
+Jayden:
+Made landing page 
+Assigned
+Benson:
+Made car détails page
+Took notes
+Made retrospective outline.
+Assigned 
+
+Notes:
+Widgets are vue components
+“Fake data”
+Model data
+Made tickets for backend models
+
+Sprint sheet: 
+
+Just started jira sprint so currently no chart
