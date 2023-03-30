@@ -18,7 +18,7 @@
           <label for="max-price">Max Price:</label>
           <input type="number" id="max-price" v-model="search.maxPrice" />
         </div>
-        <button type="submit">Search</button>
+        <RouterLink type="submit" to="/list">Search</RouterLink>
       </form>
     </div>
   </template>
