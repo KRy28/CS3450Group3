@@ -18,7 +18,9 @@
           <label for="max-price">Max Price:</label>
           <input type="number" id="max-price" v-model="search.maxPrice" />
         </div>
-        <RouterLink type="submit" to="/list">Search</RouterLink>
+        <center>
+          <RouterLink class="checkoutButton" to="/list">Search</RouterLink>
+        </center>
       </form>
     </div>
   </template>
@@ -90,5 +92,23 @@
   button:hover {
     background-color: #444;
   }
+
+  .checkoutButton{
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-decoration: none;
+      
+    }
+    .checkoutButton:hover {
+      background-color: #0069d9; /* darken background color on hover */
+    }
+
   </style>
   
