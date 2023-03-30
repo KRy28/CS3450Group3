@@ -10,6 +10,7 @@
     "db:seed": "(cd database && npx sequelize-cli db:seed)",
     "db:create": "(cd database && npx sequelize-cli db:create)"
   },
+ 
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
