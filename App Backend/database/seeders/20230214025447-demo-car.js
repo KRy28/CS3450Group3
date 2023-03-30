@@ -11,6 +11,7 @@ module.exports = {
       condition: `poor`,
       description: `Cars 3 really did a number on 'em`,
       rate: 66.24,
+      image: ``,
       createdAt: new Date(),
       updatedAt: new Date()
     },
