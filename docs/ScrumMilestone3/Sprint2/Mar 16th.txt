@@ -1,0 +1,25 @@
+March 16th
+
+Ethan:
+Finish login on Monday
+
+Jaxson:
+Improved calendar selection and sure navigation.
+
+Jayden:
+Improved landing page and improved the CSS.
+Made full responsive cart.
+
+Benson:
+Got models working 
+Started on migrations and seeders for fake data
+Took notes
+
+Notes:
+“Fake data” (3)
+API??..
+Responsive with vue.
+Hashing and session keys.
+
+
+Sprint sheet: 
