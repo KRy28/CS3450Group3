@@ -19,7 +19,7 @@
           <input type="number" id="max-price" v-model="search.maxPrice" />
         </div>
         <center>
-          <RouterLink class="checkoutButton" to="/list">Search</RouterLink>
+          <RouterLink class="checkoutButton" :to="`/list/${search.make}/${search.model}/${search.minPrice}/${search.maxPrice}`">Search</RouterLink>
         </center>
       </form>
     </div>
@@ -30,10 +30,10 @@
     data() {
       return {
         search: {
-          make: "",
-          model: "",
-          minPrice: "",
-          maxPrice: "",
+          make: null,
+          model: null,
+          minPrice: null,
+          maxPrice: null,
         },
       };
     },
