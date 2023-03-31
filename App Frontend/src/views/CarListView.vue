@@ -38,6 +38,7 @@ export default {
                  == this.$route.params.model.toLowerCase() || this.$route.params.model == 'null') && (car.rate >= this.$route.params.minPrice || this.$route.params.minPrice == 'null') && 
                 (car.rate <= this.$route.params.maxPrice || this.$route.params.maxPrice == 'null')" class="container">
                   <div class="image">
+                    <img :src="car.image" style="height:100px">
                   </div>
                   <div class="text">
                     <p><strong>{{ car.make }} {{ car.model }}</strong></p>
