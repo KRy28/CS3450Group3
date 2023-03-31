@@ -1,28 +1,24 @@
 <script>
-
 export default {
   data() {
   	return {
-      json: undefined
-      
+      json: undefined // initialize the 'json' property to undefined
     }
 	},
 
   methods: {
     fetch_info() {
-            fetch("http://localhost:3000/cars/json")
-                .then(r => r.json())
-                .then(json => {
-                    this.json = json
-                    console.log(json)
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-        },
-
+      fetch("http://localhost:3000/cars/json") // fetch data from the specified URL
+        .then(r => r.json()) // parse the response as JSON
+        .then(json => {
+          this.json = json // set the 'json' property to the parsed JSON data
+          console.log(json) // log the data to the console
+        })
+        .catch(error => {
+          console.log(error); // log any errors to the console
+        })
+    },
   }
-  
 }
 </script>
 
