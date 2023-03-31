@@ -3,6 +3,7 @@
     "@popperjs/core": "^2.11.6",
     "cors": "^2.8.5",
     "v-calendar": "^3.0.1",
+    "vue-slider-component": "^3.2.24",
     "vue2-daterange-picker": "^0.6.8"
   }
 }
