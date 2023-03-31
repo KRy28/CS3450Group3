@@ -4,9 +4,16 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+
+
 const indexRouter = require('./routes/index');
 
 const app = express();
+
+const cors = require('cors');
+
+// Allow cross-origin requests
+app.use(cors());
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize({
@@ -22,6 +29,7 @@ setImmediate(async () => {
     console.log('sequelize was not authenticated', err)
   }
 })
+
 
 app.use(logger('dev'));
 app.use(express.json());

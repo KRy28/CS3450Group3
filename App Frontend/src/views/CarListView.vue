@@ -34,7 +34,8 @@ export default {
             <p style="display:none">{{ total = 0 }}</p>
             <li v-for="car in json" style="list-style-type: none;">
               <RouterLink class="navigateButton" :to="`/details/${car.id}`">
-                <div v-if="(car.make == this.$route.params.make || this.$route.params.make == 'null') && (car.model == this.$route.params.model || this.$route.params.model == 'null') && (car.rate >= this.$route.params.minPrice || this.$route.params.minPrice == 'null') && 
+                <div v-if="(car.make.toLowerCase() == this.$route.params.make.toLowerCase() || this.$route.params.make == 'null') && (car.model.toLowerCase()
+                 == this.$route.params.model.toLowerCase() || this.$route.params.model == 'null') && (car.rate >= this.$route.params.minPrice || this.$route.params.minPrice == 'null') && 
                 (car.rate <= this.$route.params.maxPrice || this.$route.params.maxPrice == 'null')" class="container">
                   <div class="image">
                   </div>
