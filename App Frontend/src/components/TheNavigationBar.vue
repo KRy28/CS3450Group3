@@ -3,8 +3,9 @@
     <RouterLink class="link" to="/">Home</RouterLink>
     <RouterLink class="link" to="/aboutContact">About/Contact</RouterLink>
     <RouterLink class="link" to="/search">Search</RouterLink>
-    <RouterLink class="link" to="/login">Login</RouterLink>
+    <RouterLink class="link" to="/list/null/null/null/null">All Cars</RouterLink>
     <RouterLink class="link" to="/cart">Cart</RouterLink>
+    <RouterLink class="link" to="/login">Login</RouterLink>
 
   </nav>
 </template>

@@ -43,7 +43,7 @@ const router = createRouter({
       path: "/list/:make/:model/:minPrice/:maxPrice",
       name: "list",
       component: () => import("../views/CarListView.vue")
-    }
+    },
   ]
 });
 
