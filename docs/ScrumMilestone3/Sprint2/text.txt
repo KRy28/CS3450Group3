@@ -1,0 +1,20 @@
+Plan sprint 2 dev:
+Plan Sprint 1 Dev: 
+
+Beginning and end:
+Ends: ~March 15 (spring break makes this weird Mabye closer to the 22cd?)
+Hours: in meeting 3, out meeting 6 for 9*4 = 36 hours (assuming 3 meetings and 2 hr work between meetings) we had 5 last time so ~27 may be more accurate.
+We will all be available to work, will probably need to meet over discord due to meeting places and transportation. Except no directed work over the break.
+Metric for retrospective: learning and work done? Idk
+
+Benson is Scrum Master.
+Everyone was here
+Ethan, Jaxson, Jayden.
+
+
+Stories:
+Marked in jira.
+
+https://soft-dev-three.atlassian.net/
+
+Artefacts:

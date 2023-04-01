@@ -21,6 +21,11 @@ app.use(passport.authenticate('session'))
 const indexRouter = require('./routes/index');
 
 
+const cors = require('cors');
+
+// Allow cross-origin requests
+app.use(cors());
+
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize({
   dialect: 'sqlite',
@@ -35,6 +40,7 @@ setImmediate(async () => {
     console.log('sequelize was not authenticated', err)
   }
 })
+
 
 app.use(logger('dev'));
 app.use(express.json());

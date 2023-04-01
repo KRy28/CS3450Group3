@@ -10,12 +10,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       make: {
+	allowNull: false,
         type: Sequelize.STRING
       },
       model: {
+	allowNull: false,
         type: Sequelize.STRING
       },
       year: {
+	allowNull: false,
         type: Sequelize.INTEGER
       },
       condition: {
@@ -25,7 +28,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       rate: {
+	allowNull: false,
         type: Sequelize.FLOAT
+      },
+      image: {
+	allowNull: false,	
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

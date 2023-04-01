@@ -1,3 +1,33 @@
+<template>
+  <div class="Cart" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+      <center>
+          <h1>Cart</h1>    
+          <p style="display:none">{{ total = 0 }}</p>
+          <li v-for="(item, index) in items" style="list-style-type: none;">
+            <button class="carButton" to="/carDetails">
+              <div class="container">
+                <div class="image">
+                  <img :src="item.image" style="height:100px">
+                </div>
+                <div class="text">
+                  <RouterLink class="navigateButton" :to="`/details/${item.car}`"><p><strong>{{ item.car }}</strong></p></RouterLink>
+                  <RouterLink class="navigateButton" to="/calendar"><p>Dates Rented: {{ item.dates }}</p></RouterLink>
+                  <p>Cost: ${{ item.cost.toLocaleString('en', {useGrouping:true}) }}/Day</p>
+                </div>
+                <div>
+                  <button @click="deleteEvent(index)"><img src="https://www.wackybuttons.com/designcodes/0/110/1107412.png" style="height:50px;border:none;appearance:none;cursor:pointer;background-color: inherit;"></button>
+                </div>
+              </div>
+              <p style="display: none;"> {{ total += item.cost }} </p>
+            </button>
+          </li>
+          <h3>Total: ${{ total.toLocaleString('en', {useGrouping:true}) }}</h3>
+          <RouterLink class="checkoutButton" to="/checkout">Checkout</RouterLink>
+      </center>
+  </div>
+
+</template>
+
 <script>
 export default {
   data() {
@@ -36,39 +66,8 @@ export default {
   
 }
 </script>
-
-<template>
-    <div class="Cart" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-        <center>
-            <h1>Cart</h1>    
-            <p style="display:none">{{ total = 0 }}</p>
-            <li v-for="(item, index) in items" style="list-style-type: none;">
-              <button class="carButton" to="/carDetails">
-                <div class="container">
-                  <div class="image">
-                    <img :src="item.image" style="height:100px">
-                  </div>
-                  <div class="text">
-                    <RouterLink class="navigateButton" :to="`/details/${item.car}`"><p><strong>{{ item.car }}</strong></p></RouterLink>
-                    <RouterLink class="navigateButton" to="/calendar"><p>Dates Rented: {{ item.dates }}</p></RouterLink>
-                    <p>Cost: ${{ item.cost.toLocaleString('en', {useGrouping:true}) }}/Day</p>
-                  </div>
-                  <div>
-                    <button @click="deleteEvent(index)"><img src="https://www.wackybuttons.com/designcodes/0/110/1107412.png" style="height:50px;border:none;appearance:none;cursor:pointer;background-color: inherit;"></button>
-                  </div>
-                </div>
-                <p style="display: none;"> {{ total += item.cost }} </p>
-              </button>
-            </li>
-            <h3>Total: ${{ total.toLocaleString('en', {useGrouping:true}) }}</h3>
-            <RouterLink class="checkoutButton" to="/checkout">Checkout</RouterLink>
-        </center>
-    </div>
   
-  </template>
-
-  
-  <style>
+<style>
   @media (min-width: 1024px) {
     .container {
       display: grid;
@@ -119,4 +118,4 @@ export default {
     
 
   }
-  </style>
+</style>

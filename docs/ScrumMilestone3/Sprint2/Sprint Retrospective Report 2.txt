@@ -1,0 +1,27 @@
+﻿Sprint Retrospective Report 2
+Sprint Duration: 1 week
+Team Members: Benson (Scrum Master), Jaxson, Ethan, Jayden
+Attendance: All team members present
+1. What went well:
+* Successfully created the Landing Page, providing an appealing and informative entry point for users.
+* Developed a secure and user-friendly Login Page, enabling smooth user authentication.
+* Implemented a Navigation Bar with a clear site map, enhancing user experience and site usability.
+* Completed the Car List Page, allowing users to browse available cars efficiently.
+2. What didn't go well:
+* Encountered issues with responsive design, which required additional time to address.
+* Struggled to prioritize tasks effectively, leading to uneven workload distribution among team members.
+* Faced challenges in integrating the Car List Page with the backend, causing delays.
+3. Specific things to improve:
+* Allocate more time for testing responsive design to ensure a seamless user experience on various devices.
+* Improve task prioritization by regularly discussing workload distribution during daily stand-ups.
+* Strengthen collaboration between frontend and backend developers to minimize integration issues.
+4. Measurement criteria:
+* Task completion and quality (40%)
+* Collaboration and communication (30%)
+* Problem-solving and adaptability (20%)
+* Adherence to timelines and attendance (10%)
+5. Percentage assigned to each team member:
+* Benson (Scrum Master): 25%
+* Jaxson: 25%
+* Ethan: 25%
+* Jayden: 25%

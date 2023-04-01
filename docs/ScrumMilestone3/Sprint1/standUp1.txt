@@ -1,0 +1,6 @@
+﻿Stand-up Meeting Report for Sprint 1
+* Discussed progress on UML diagrams, Toy Express Server, and high/low-level designs.
+* Addressed confusion related to the activity diagrams and assigned additional resources to resolve the issue.
+* Updated team members on the Database Prototype progress and planned next steps.
+* Discussed Git backlog management and decided to hold a mini-review session to clean it up.
+* Encouraged team members to communicate their tasks and progress more frequently to avoid duplication of work.

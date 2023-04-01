@@ -2,7 +2,7 @@
 'use strict';
 const {
   Model
-} = require('sequelize', 'Employee', 'User', 'Manager');
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Person extends Model {
     /**
@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Person.belongsTo(models.Employee);
       Person.belongsTo(models.User);
+      Person.belongsTo(models.Employee);
       Person.belongsTo(models.Manager);	
     }
   }
