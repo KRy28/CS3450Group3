@@ -3,10 +3,23 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
-const indexRouter = require('./routes/index');
+const crypto = require('crypto')
+const session = require('express-session')
+const passport = require('passport')
 
 const app = express();
+app.use(session({
+  secret: 'NotASecret', // For security, replace this with an environment variable
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true
+  } 
+}))
+app.use(passport.authenticate('session'))
+const indexRouter = require('./routes/index');
+
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize({
