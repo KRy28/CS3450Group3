@@ -1,7 +1,4 @@
 **/.DS_Store
 **/*.drawio
 .ssh
-<<<<<<< HEAD
-=======
 node_modules
->>>>>>> develop
