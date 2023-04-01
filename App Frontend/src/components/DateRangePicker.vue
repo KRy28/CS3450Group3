@@ -97,7 +97,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* Main container for the date range picker */
 .date-range-picker {
   display: flex;
@@ -141,4 +141,3 @@ input[type="date"] {
   padding-top: 20px;
 }
 </style>
-

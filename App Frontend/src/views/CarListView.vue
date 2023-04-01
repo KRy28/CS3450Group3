@@ -1,3 +1,33 @@
+<template>
+  <div class="Cart" style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
+    {{ fetch_info() }}
+      <center>
+          <h1>List of Cars</h1>    
+          <p style="display:none">{{ total = 0 }}</p>
+          <li v-for="(car, index) in json" style="list-style-type: none;">
+            <RouterLink class="navigateButton" :to="`/details/${car.id}`">
+              <div
+                v-if="(car.make.toLowerCase() == this.$route.params.make.toLowerCase() || this.$route.params.make == 'null') && (car.model.toLowerCase()
+               == this.$route.params.model.toLowerCase() || this.$route.params.model == 'null') && (car.rate >= this.$route.params.minPrice || this.$route.params.minPrice == 'null') && 
+              (car.rate <= this.$route.params.maxPrice || this.$route.params.maxPrice == 'null')"
+                class="container"
+                :style="{ backgroundColor: getColor(index), padding: '15px', borderRadius: '10px', margin: '10px' }"
+              >
+                <div class="image">
+                  <img :src="car.image" style="height:100px">
+                </div>
+                <div class="text">
+                  <p><strong>{{ car.make }} {{ car.model }}</strong></p>
+                  <p>Cost: ${{ car.rate.toLocaleString('en', {useGrouping:true}) }}/Day</p>
+                </div>
+              </div>
+            </RouterLink>
+          </li>
+      </center>
+  </div>
+
+</template>
+
 <script>
 export default {
   data() {
@@ -29,36 +59,6 @@ export default {
   }
 };
 </script>
-
-<template>
-    <div class="Cart" style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
-      {{ fetch_info() }}
-        <center>
-            <h1>List of Cars</h1>    
-            <p style="display:none">{{ total = 0 }}</p>
-            <li v-for="(car, index) in json" style="list-style-type: none;">
-              <RouterLink class="navigateButton" :to="`/details/${car.id}`">
-                <div
-                  v-if="(car.make.toLowerCase() == this.$route.params.make.toLowerCase() || this.$route.params.make == 'null') && (car.model.toLowerCase()
-                 == this.$route.params.model.toLowerCase() || this.$route.params.model == 'null') && (car.rate >= this.$route.params.minPrice || this.$route.params.minPrice == 'null') && 
-                (car.rate <= this.$route.params.maxPrice || this.$route.params.maxPrice == 'null')"
-                  class="container"
-                  :style="{ backgroundColor: getColor(index), padding: '15px', borderRadius: '10px', margin: '10px' }"
-                >
-                  <div class="image">
-                    <img :src="car.image" style="height:100px">
-                  </div>
-                  <div class="text">
-                    <p><strong>{{ car.make }} {{ car.model }}</strong></p>
-                    <p>Cost: ${{ car.rate.toLocaleString('en', {useGrouping:true}) }}/Day</p>
-                  </div>
-                </div>
-              </RouterLink>
-            </li>
-        </center>
-    </div>
-  
-  </template>
 
   
   <style>
