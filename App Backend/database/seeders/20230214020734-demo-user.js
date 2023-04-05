@@ -3,13 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 const { generateHashedPassword } = require('../../routes/helpers.js')
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    const ppl = await queryInterface.bulkInsert('People', [
+   async up (queryInterface, Sequelize) {
+   const ppl = await queryInterface.bulkInsert('People', [
     {
        firstName: 'Dan',
        lastName: 'Watson',
        email: 'danwatson@dcarbarn.com',
-       hash: generateHashedPassword("12345678SUM"),
+       hash: await generateHashedPassword("12345678SUM"),
        username: "WatsonMan",
        wallet: 42069,
        elevation: 3,
@@ -20,7 +20,7 @@ module.exports = {
        firstName: '1Dan',
        lastName: '1Watson',
        email: '1danwatson@dcarbarn.com',
-       hash: generateHashedPassword("112345678SUM"),
+       hash: await generateHashedPassword("112345678SUM"),
        username: "1WatsonMan",
        wallet: 42069,
        elevation: 3,
@@ -32,7 +32,7 @@ module.exports = {
        firstName: '2Dan',
        lastName: '2Watson',
        email: '2danwatson@dcarbarn.com',
-       hash: generateHashedPassword("212345678SUM"),
+       hash: await generateHashedPassword("212345678SUM"),
        username: "2WatsonMan",
        wallet: 42069,
        elevation: 3,

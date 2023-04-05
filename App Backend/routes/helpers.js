@@ -22,4 +22,11 @@ module.exports.isTheUser = (userId) => (req, res, next) => {
   }
 }
 
-module.exports.generateHashedPassword = password => crypto.pbkdf2(password, 'fixed salt lol', 310000, 32, 'sha256', () => {})
+module.exports.generateHashedPassword = async password => new Promise ((resolve, reject) => {
+  crypto.pbkdf2(password, 'fixed salt lol', 310000, 32, 'sha256', (err, key) => {
+    if (err) {
+      reject(err)
+    }
+    resolve(key)
+  })
+})

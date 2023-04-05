@@ -12,17 +12,16 @@ const strategy = new LocalStrategy(async (username, password, next) => {
   if (!person) {
     return next(null, false, { message: 'Incorrect username or password.' })
   }
-  let hashedPassword
-  try {
-    hashedPassword = generateHashedPassword(password)
-  } catch (err) {
-    console.log(err)
-    return next(err)
-  }
-  if (person.hashedPassword !== hashedPassword) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
-    return next(null, false, { message: 'Incorrect username or password.' })
-  }
-  return next(null, person)
+  generateHashedPassword(password).then((hash) => {
+    if (person.hashedPassword !== hashedPassword) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
+      return next(null, false, { message: 'Incorrect username or password.' })
+    }
+    return next(null, person)
+  })
+    .catch(err => {
+      console.log(err)
+      return next(err)
+    })
 })
 
 passport.use(strategy)
