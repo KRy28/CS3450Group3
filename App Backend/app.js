@@ -29,7 +29,7 @@ app.use(cors());
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: 'database/database_development'
+  storage: 'database/database/database_development'
 });
 
 setImmediate(async () => {

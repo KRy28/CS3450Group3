@@ -7,7 +7,7 @@
     "start": "node ./bin/www",
     "db:migrate": "cd database && npx sequelize-cli db:migrate && cd ..",
     "db:migrate:undo": "cd database && npx sequelize db:migrate:undo & cd ..",
-    "db:seed": "cd database && npx sequelize db:seed && cd ..",
+    "db:seed": "cd database && npx sequelize db:seed:all && cd ..",
     "db:create": "cd database && npx sequelize db:create && cd .."
   },
   "dependencies": {
