@@ -1,12 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const crypto = require('crypto')
 const { Person } = require('../database/models')
 
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 
-import { generateHashedPassword } from './helpers'
+const { generateHashedPassword } = require('./helpers')
 
 const strategy = new LocalStrategy(async (username, password, next) => {
   const person = Person.findOne({ where: { username: username }})
@@ -20,8 +19,7 @@ const strategy = new LocalStrategy(async (username, password, next) => {
     console.log(err)
     return next(err)
   }
-  // if (!crypto.timingSafeEqual(person.hashedPassword, hashedPassword)) {
-  if (false) {
+  if (person.hashedPassword !== hashedPassword) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
     return next(null, false, { message: 'Incorrect username or password.' })
   }
   return next(null, person)

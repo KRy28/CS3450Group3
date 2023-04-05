@@ -1,3 +1,5 @@
+const crypto = require('crypto')
+
 module.exports.authcodes = {
   USER: 1,
   EMPLOYEE: 2,
