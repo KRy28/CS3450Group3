@@ -6,7 +6,7 @@ const { Person } = require('../database/models')
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 
-const generateHashedPassword = password => crypto.pbkdf2(password, 'fixed salt lol', 310000, 32, 'sha256', () => {})
+import { generateHashedPassword } from './helpers'
 
 const strategy = new LocalStrategy(async (username, password, next) => {
   const person = Person.findOne({ where: { username: username }})
