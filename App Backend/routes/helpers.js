@@ -1,10 +1,10 @@
-export const authcodes = {
+module.exports.authcodes = {
   USER: 1,
   EMPLOYEE: 2,
   MANAGER: 3
 }
 
-export const isAuthenticated = (level) => (req, res, next) => {
+module.exports.isAuthenticated = (level) => (req, res, next) => {
   if (req.user && req.elevation >= level) {
     next(); // The user is authenticated
   } else {
@@ -12,7 +12,7 @@ export const isAuthenticated = (level) => (req, res, next) => {
   }
 }
 
-export const isTheUser = (userId) => (req, res, next) => {
+module.exports.isTheUser = (userId) => (req, res, next) => {
   if (req.user.id === userId) {
     next();
   } else {
@@ -20,4 +20,4 @@ export const isTheUser = (userId) => (req, res, next) => {
   }
 }
 
-export const generateHashedPassword = password => crypto.pbkdf2(password, 'fixed salt lol', 310000, 32, 'sha256', () => {})
+module.exports.generateHashedPassword = password => crypto.pbkdf2(password, 'fixed salt lol', 310000, 32, 'sha256', () => {})
