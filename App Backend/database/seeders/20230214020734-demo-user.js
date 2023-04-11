@@ -41,36 +41,36 @@ module.exports = {
     }],{});
     await queryInterface.bulkInsert('Users', [
     {
-       user_id: (ppl-2),
+       person_id: (ppl-2),
        createdAt: new Date(),
        updatedAt: new Date()
     },
     /*{  
-       user_id: (ppl-1),
+       person_id: (ppl-1),
        createdAt: new Date(),
        updatedAt: new Date()
     }, 
     {   
-       user_id: ppl,
+       person_id: ppl,
        createdAt: new Date(),
        updatedAt: new Date()
     }*/
     ],{});
     await queryInterface.bulkInsert('Employees', [
     /*{
-       employee_id: (ppl-2),
+       person_id: (ppl-2),
        createdAt: new Date(),
        updatedAt: new Date()
     },*/
     {  
-       employee_id: (ppl-1),
+       person_id: (ppl-1),
        hours: 0.0,
        payRate: 420.0,
        createdAt: new Date(),
        updatedAt: new Date()
     }, 
     /*{   
-       employee_id: ppl,
+       person_id: ppl,
        createdAt: new Date(),
        updatedAt: new Date()
     }*/
@@ -78,17 +78,17 @@ module.exports = {
     ],{});
     await queryInterface.bulkInsert('Managers', [
     /*{
-       manager_id: (ppl-2),
+       person_id: (ppl-2),
        createdAt: new Date(),
        updatedAt: new Date()
     },
     {  
-       manager_id: (ppl-1),
+       person_id: (ppl-1),
        createdAt: new Date(),
        updatedAt: new Date()
     },*/ 
     {   
-       manager_id: ppl,
+       person_id: ppl,
        hours: 0.0,
        payRate: 420.0,
        createdAt: new Date(),

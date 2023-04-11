@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
         return Promise.all([
-        queryInterface.addColumn('Users', 'user_id',
+        queryInterface.addColumn('Users', 'person_id',
             {
               type: Sequelize.UUID,
               references: {
@@ -14,7 +14,7 @@ module.exports = {
               onDelete: 'SET NULL',
               defaultValue: null, after: 'can_maintain_system'
             }),
-	queryInterface.addColumn('Employees', 'employee_id',
+	queryInterface.addColumn('Employees', 'person_id',
             {
               type: Sequelize.UUID,
               references: {
@@ -25,7 +25,7 @@ module.exports = {
               onDelete: 'SET NULL',
               defaultValue: null, after: 'can_maintain_system'
             }),
-	queryInterface.addColumn('Managers', 'manager_id',
+	queryInterface.addColumn('Managers', 'person_id',
             {
               type: Sequelize.UUID,
               references: {
@@ -36,7 +36,7 @@ module.exports = {
               onDelete: 'SET NULL',
               defaultValue: null, after: 'can_maintain_system'
             }),
-	queryInterface.addColumn('Reservations', 'reservation_id',
+	queryInterface.addColumn('Reservations', 'user_id',
             {
               type: Sequelize.UUID,
               references: {
@@ -52,10 +52,10 @@ module.exports = {
 
       down: (queryInterface, Sequelize) => {
         return Promise.all([ 
-          queryInterface.removeColumn('Users', 'user_id'),
-          queryInterface.removeColumn('Employees', 'employee_id'),
-          queryInterface.removeColumn('Managers', 'manager_id'),
-          queryInterface.removeColumn('Reservations', 'reservation_id'),
+          queryInterface.removeColumn('Users', 'person_id'),
+          queryInterface.removeColumn('Employees', 'person_id'),
+          queryInterface.removeColumn('Managers', 'person_id'),
+          queryInterface.removeColumn('Reservations', 'user_id'),
         ]);
       }
     };

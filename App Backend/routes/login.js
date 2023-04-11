@@ -12,7 +12,7 @@ const strategy = new LocalStrategy(async (username, password, next) => {
   if (!person) {
     return next(null, false, { message: 'Incorrect username or password.' })
   }
-  generateHashedPassword(password).then((hash) => {
+  generateHashedPassword(password).then((hashedPassword) => {
     if (person.hashedPassword !== hashedPassword) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
       return next(null, false, { message: 'Incorrect username or password.' })
     }
