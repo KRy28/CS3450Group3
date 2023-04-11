@@ -4,7 +4,7 @@
 const { generateHashedPassword } = require('../../routes/helpers.js')
 module.exports = {
    async up (queryInterface, Sequelize) {
-   const ppl = await queryInterface.bulkInsert('People', [
+   const ppl = await queryInterface.bulkInsert('Persons', [
     {
        firstName: 'Dan',
        lastName: 'Watson',
@@ -98,7 +98,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('People', null, {});
+    await queryInterface.bulkDelete('Persons', null, {});
     await queryInterface.bulkDelete('Users', null, {});
     await queryInterface.bulkDelete('Employees', null, {});
     await queryInterface.bulkDelete('Managers', null, {});

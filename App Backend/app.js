@@ -27,10 +27,9 @@ const cors = require('cors');
 app.use(cors());
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'database/database/database_development'
-});
+const env = process.env.NODE_ENV || 'development'
+const sequelizeOptions = require("./database/config/config.json")
+const sequelize = new Sequelize(sequelizeOptions[env] || sequelizeOptions['development'])
 
 setImmediate(async () => {
   try {
