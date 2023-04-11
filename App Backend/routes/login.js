@@ -6,20 +6,22 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local')
 
 const { generateHashedPassword } = require('./helpers')
-
+const crypto = require('crypto')
 const strategy = new LocalStrategy(async (username, password, next) => {
-  const person = Person.findOne({ where: { username: username }})
+  const person = await Person.findOne({ where: { username: username }})
   if (!person) {
+    console.log('not found')
     return next(null, false, { message: 'Incorrect username or password.' })
   }
   generateHashedPassword(password).then((hashedPassword) => {
-    if (person.hashedPassword !== hashedPassword) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
+    if (!crypto.timingSafeEqual(person.hash, hashedPassword)) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
       return next(null, false, { message: 'Incorrect username or password.' })
     }
+    console.log('worked')
     return next(null, person)
   })
     .catch(err => {
-      console.log(err)
+      console.log(err, 'error')
       return next(err)
     })
 })
