@@ -28,7 +28,7 @@ app.use(cors());
 
 const Sequelize = require("sequelize");
 const env = process.env.NODE_ENV || 'development'
-const sequelizeOptions = require("./database/config/config.json")
+const sequelizeOptions = require("./database/config/config.js")
 const sequelize = new Sequelize(sequelizeOptions[env] || sequelizeOptions['development'])
 
 setImmediate(async () => {
