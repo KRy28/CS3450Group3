@@ -4,7 +4,7 @@ const { isAuthenticated, authcodes, isTheUser } = require('./helpers')
 
 const { User } = require('../database/models')
 
-router.get('/', isAuthenticated(authcodes.MANAGER), function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.json(['/json', '/string']);
 });
 
