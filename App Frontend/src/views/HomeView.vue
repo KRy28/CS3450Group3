@@ -7,7 +7,7 @@
             <RouterLink class="buttons" to="/search">Search </RouterLink>
             <RouterLink class="buttons" to="/aboutContact">About Us</RouterLink>
             <RouterLink class="buttons" to="/aboutContact">Contact Us</RouterLink>
-            <RouterLink class="buttons" to="/login">Log In</RouterLink>
+            <RouterLink v-if="!loggedIn()" class="buttons" to="/login">Log In</RouterLink>
       </center>
   </div>
   </main>
@@ -15,7 +15,20 @@
 
 <script>
   export default {
-    name: 'HomeView'
+    methods: {
+    loggedIn(){
+      console.log("THe current damn cookie: " + document.cookie);
+      if (document.cookie == "null" || document.cookie == ""){
+        console.log("Not logged in");
+        return false;
+      }
+      else{
+        console.log("Logged in");
+        return true;
+      }
+    }
+    
+  }
   }
 </script>
 

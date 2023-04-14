@@ -33,7 +33,10 @@
 </template>
 
 <script>
+
 export default {
+
+  
   data() {
     return {
       cars: [
@@ -44,6 +47,7 @@ export default {
     };
   },
 };
+
 </script>
 
 <style scoped>

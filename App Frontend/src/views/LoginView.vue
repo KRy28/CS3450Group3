@@ -1,17 +1,84 @@
+<script>
+import router from '../../../App Frontend/src/router/index.js';
+import TheNavigationBar from '../components/TheNavigationBar.vue';
+  export default {
+  data() {
+  	return {
+      json: undefined, // initialize the 'json' property to undefined
+      login: {
+        username: null,
+        password: null,
+      }
+    }
+	},
+
+  methods: {
+    fetch_info() {
+      fetch("http://localhost:3000/users/json") // fetch data from the specified URL
+        .then(r => r.json()) // parse the response as JSON
+        .then(json => {
+          this.json = json // set the 'json' property to the parsed JSON data
+          console.log(json) // log the data to the console
+        })
+        .catch(error => {
+          console.log(error); // log any errors to the console
+        })
+    },
+
+    
+    async checkLogin(){
+      const result = await fetch("http://localhost:3000/users/json") // fetch data from the specified URL
+        .then(r => r.json()) // parse the response as JSON
+        .then(json => {
+          this.json = json // set the 'json' property to the parsed JSON data
+          console.log(json) // log the data to the console
+        })
+        .catch(error => {
+          console.log(error); // log any errors to the console
+        })
+      console.log("Made it here");
+      var found = false;
+      var i = 0;
+      while (found == false && i < Object.keys(this.json).length){
+        if (this.json[i].email == this.login.username){
+          if (this.json[i].hash == this.login.password){
+            found = true;
+            break;
+          }
+        }
+        i++;
+      }
+      if (found == true){
+        console.log("Login successful");
+        document.cookie=this.json[i].id;
+        console.log(document.cookie);
+        router.push('/aboutContact');
+        this.$emit('refresh-navigation-bar');
+
+      }
+      else{
+        console.log("Login failed");
+      }
+    },
+
+  }
+};
+</script>
+
 <template>
   <div class="login">
     <h1>Dan's Car Barn Login</h1>
-    <form>
+    
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" v-model="login.username" required >
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" id="password" name="password"  v-model="login.password" required>
       </div>
-      <button type="submit">Login</button>
-    </form>
+      <button type="submit" @click="checkLogin()">Login</button>
+    
   </div>
 </template>
 

@@ -5,15 +5,44 @@
     <RouterLink class="link" to="/search">Search</RouterLink>
     <RouterLink class="link" to="/list/null/null/null/null">All Cars</RouterLink>
     <RouterLink class="link" to="/cart">Cart</RouterLink>
-    <RouterLink class="link" to="/login">Login</RouterLink>
+    <RouterLink v-if="loggedIn()" class="link" to="/account">Account</RouterLink>
+    <RouterLink v-if="!loggedIn()" class="link" to="/login">Login</RouterLink>
+    <RouterLink v-if="loggedIn()" @click="logout()" class="link" to="/login">Log Out</RouterLink>
 
   </nav>
 </template>
 
 <script>
-export default {
+ export default {
+  data() {
+  	return {
+      json: undefined, // initialize the 'json' property to undefined
+      login: {
+        username: null,
+        password: null,
+      }
+    }
+	},
+
+  methods: {
+    loggedIn(){
+      if (document.cookie == "null" || document.cookie == ""){
+        console.log("Not logged in");
+        return false;
+      }
+      else{
+        console.log("Logged in");
+        return true;
+      }
+    },
+    logout(){
+      this.$forceUpdate();
+      document.cookie = null;
+    },
+  },
+    
   
-}
+};
 </script>
 
 <style scoped>
