@@ -8,6 +8,7 @@ const session = require('express-session')
 const passport = require('passport')
 
 const app = express();
+app.use(express.json())
 app.use(session({
   secret: 'NotASecret', // For security, replace this with an environment variable
   resave: false,

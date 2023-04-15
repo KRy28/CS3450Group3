@@ -8,4 +8,9 @@ router.get('/json', async function(req, res, next) {
   res.json(reservations);
 });
 
+router.get('/add', async function(req, res, next) {
+  const reservation = await Reservation.create()
+  res.json(reservations);
+});
+
 module.exports = router;
