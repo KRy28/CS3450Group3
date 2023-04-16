@@ -50,7 +50,7 @@ router.get('/', function (req, res) {
 router.post('/password',
   passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
   function(req, res) {
-    res.redirect('/~' + req.user.username)
+    res.send('login success!!')
   }
 )
 

@@ -11,7 +11,12 @@ const { passport } = require('./routes/login')
 const app = express();
 
 const cors = require('cors');
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5173', // Replace with your frontend's URL
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}
+app.use(cors(corsOptions));
 app.use(session({
   secret: 'NotASecret', // For security, replace this with an environment variable
   resave: false,
