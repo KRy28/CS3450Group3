@@ -3,22 +3,24 @@
         <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">    
             <center>
                 <h1>Hello (Employee)!</h1>
-                <h2>Currently Rented Cars:</h2>
-                    <ul style="list-style-type: none;">
-                        <li class="container"
-                :style="{ backgroundColor: getColor(index), padding: '15px'}">
-                            <ul style="list-style-type: none;">
-                                <li>
+                <p>Current Hourly Rate: $___</p>
+                <h2>Currently Rented Cars</h2>
+                        <li style="list-style-type: none">
+                            <div class="container" :style="{ backgroundColor: getColor(index), padding: '15px', borderRadius: '10px', margin: '10px' }">
+                                <div>
                                     <p><strong>(Car)</strong></p>
-                                </li>
-                                <li>
-                                    <p>Insurance purchased: (yes/no) <button>Breakdown Car (if no Insurance)</button></p>
-                                </li>
-
-                            </ul>
-
+                                </div>
+                                <div>
+                                    <p>Insurance purchased: (yes/no) </p><button class="checkoutButton">Breakdown Car (if no Insurance)</button>
+                                </div>
+                            </div>    
                         </li>
-                    </ul>
+                <h3>Hours Worked: _____</h3>
+                <div class="form-group">
+                    <label for="addFunds">Input Hours Worked: </label>
+                    <input type="number" id="addFunds">
+                    <button>+</button>
+                </div>
                 <h3>Balance: $____</h3>
                 <div class="form-group">
                     <label for="addFunds">Add funds: $</label>
@@ -67,14 +69,10 @@ export default {
       color: #fff;
       border: none;
       border-radius: 0.25rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
       cursor: pointer;
       transition: background-color 0.2s;
-      display: block;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-decoration: none;
-      margin: 100px;
     }
     .checkoutButton:hover {
       background-color: #0069d9; /* darken background color on hover */
