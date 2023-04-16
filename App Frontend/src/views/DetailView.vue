@@ -1,39 +1,22 @@
 <template>
-  <!-- <DateRangePicker :car-id="this.$route.params.id" @date-range-selected="onDateRangeSelected" /> -->
-  <!-- <DateRangePicker :car-id="this.$route.params.id" @date-range-selected="onDateRangeSelected" /> -->
-  <main>
+  <main v-if="car">
     <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
       <center>
-        
-        <!-- Loop through each car in the json data and display its info -->
-        <li v-for="car in json" style="list-style-type: none;">
-          <!-- Display the car's make and model if its id matches the id in the URL -->
-          <h1 v-if="car.id == this.$route.params.id">{{ car.make }} {{ car.model }}</h1>
-          
-          <!-- Display the car's image if its id matches the id in the URL -->
-          <img v-if="car.id == this.$route.params.id" :src="car.image" style="height:400px">
-          
-          <!-- Display the car's year if its id matches the id in the URL -->
-          <p v-if="car.id == this.$route.params.id">Year: {{ car.year }}</p>
-          
-          <!-- Display the car's condition if its id matches the id in the URL -->
-          <p v-if="car.id == this.$route.params.id">Condition: {{ car.condition }}</p>
-          
-          <!-- Display the car's daily rate if its id matches the id in the URL -->
-          <p v-if="car.id == this.$route.params.id">Cost: ${{ car.rate.toLocaleString('en', {useGrouping:true}) }}/Day</p>
-          
-          <!-- Display the car's description if its id matches the id in the URL -->
-          <div v-if="car.id == this.$route.params.id" class="description">
-            <p>{{ car.description }}</p>
-          </div>
-          
-          <!-- Display a link to the calendar page if the car's id matches the id in the URL -->
-          <RouterLink v-if="car.id == this.$route.params.id" class="checkoutButton" :to="`/calendar`">Rent</RouterLink>
-        </li>
+        <h1>{{ car.make }} {{ car.model }}</h1>
+        <img :src="car.image" style="height:400px">
+        <p>Year: {{ car.year }}</p>
+        <p>Condition: {{ car.condition }}</p>
+        <p>Cost: ${{ car.rate.toLocaleString('en', {useGrouping:true}) }}/Day</p>
+        <div class="description">
+          <p>{{ car.description }}</p>
+        </div>
+        <RouterLink class="checkoutButton" :to="`/calendar`">Rent</RouterLink>
       </center>
-
     </div>
   </main>
+  <div v-else> <!-- Add a loading message while car data is being fetched -->
+    <p>Loading car details...</p>
+  </div>
 </template>
 
 <script>
