@@ -28,13 +28,28 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
   const start_date = new Date(req.params.start);
   const stop_date = new Date(req.params.stop);
   const car_id = parseInt(req.params.car);
-  const reservation = await Reservation.create({
-    start: start_date,
-    stop: stop_date,
-    //person_id: req.user.id,
-    person_id: 1,
-    car_id: car_id
-  })
+  const reservations = await Reservation.findAll({ where: { car_id: car_id }});
+  function dateRangesIntersect(startA, endA, startB, endB) {
+    return (startA <= endB && endA >= startB);
+  };
+  var check = true;
+  for (var i = 0, size = reservations.length; i < size ; i++) {
+   var item = reservations[i];
+   var start = new Date(item.start)
+   var stop = new Date(item.stop)
+   if (dateRangesIntersect(start_date, stop_date, start, stop)) {
+      check = false;
+      console.log("the Truth")
+   }; 
+  };
+  if (check) {
+    const reservation = await Reservation.create({
+      start: start_date,
+      stop: stop_date,
+      person_id: req.user.id,
+      car_id: car_id
+    })
+  };
 });
 
 module.exports = router;
