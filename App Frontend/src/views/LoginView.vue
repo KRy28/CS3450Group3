@@ -1,19 +1,42 @@
 <template>
   <div class="login">
     <h1>Dan's Car Barn Login</h1>
-    <form>
+    <form onsubmit="return false">
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="username">Username:</label>
+        <input v-model="username" id="username" name="username" required>
       </div>
       <div class="form-group">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input v-model="password" type="password" id="password" name="password" required>
       </div>
-      <button type="submit">Login</button>
+      <button @click="login">Login</button>
     </form>
   </div>
 </template>
+
+<script>
+import loginAPI from '../api/login'
+import router from '../router'
+export default {
+  name: 'LoginView',
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    async login () {
+      console.log(this.username, this.password)
+      return loginAPI(this.username, this.password).then(
+        router.push('/cart')
+      )
+    }
+    
+  }
+}
+</script>
 
 <style>
 @media (min-width: 1024px) {
