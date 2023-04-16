@@ -9,12 +9,15 @@
         <p>Description: {{ car.description }}</p>
         <p>Rate: ${{ car.rate }}/Day</p>
         <p>Reservation dates: {{ startDate }} - {{ endDate }}</p>
+        <p>Total days: {{ totalDays }}</p>
+        <p>Total price: ${{ totalPrice }}</p>
+        <button class="checkout-button">Checkout</button>
       </div>
     </div>
   </template>
   
   <script>
-  import { ref, onMounted } from "vue";
+  import { ref, computed, onMounted } from "vue";
   import { useRoute } from "vue-router";
   
   export default {
@@ -35,10 +38,23 @@
         fetchCarDetails();
       });
   
+      const totalDays = computed(() => {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const timeDiff = Math.abs(end.getTime() - start.getTime());
+        return Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+      });
+  
+      const totalPrice = computed(() => {
+        return car.value.rate * totalDays.value;
+      });
+  
       return {
         car,
         startDate,
         endDate,
+        totalDays,
+        totalPrice,
       };
     },
   };
@@ -71,6 +87,21 @@
   
   p {
     margin: 10px 0;
+  }
+  
+  .checkout-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .checkout-button:hover {
+    background-color: #0056b3;
   }
   </style>
   
