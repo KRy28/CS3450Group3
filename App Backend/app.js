@@ -7,6 +7,10 @@ const crypto = require('crypto')
 const session = require('express-session')
 const { passport } = require('./routes/login')
 
+// Import reservation route
+const reservationRoute = require('./routes/reservations');
+
+
 
 const app = express();
 
@@ -27,6 +31,9 @@ app.use(session({
   } 
 }))
 app.use(passport.authenticate('session'))
+
+// Add middleware for reservation route
+app.use('/reservations', reservationRoute);
 
 app.use((req, res, next) => {
   res.setHeader('Content-Security-Policy', `default-src 'self' http://localhost:3000`)
