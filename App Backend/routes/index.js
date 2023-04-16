@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const usersRouter = require('./users');
 const addWalletRouter = require('./addWallet');
-const employeesRouter = require('./employees');
 const managersRouter = require('./managers');
 const personsRouter = require('./persons');
 const reservationsRouter = require('./reservations');
