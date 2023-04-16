@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Reservation.init({
-    
+    start: DataTypes.DATEONLY,
+    stop: DataTypes.DATEONLY
   }, {
     sequelize,
     modelName: 'Reservation',

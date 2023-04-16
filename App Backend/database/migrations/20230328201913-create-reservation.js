@@ -16,6 +16,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      start: {
+        allowNull: false,
+	type: Sequelize.DATEONLY
+      },
+      stop: {
+        allowNull: false,
+	type: Sequelize.DATEONLY
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

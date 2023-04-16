@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Person.belongsTo(models.User);
-      Person.belongsTo(models.Employee);
-      Person.belongsTo(models.Manager);	
+      Person.hasOne(models.User, { foreignKey: 'person_id' });
+      Person.hasOne(models.Employee, { foreignKey: 'person_id' });
+      Person.hasOne(models.Manager, { foreignKey: 'person_id' });
     }
   }
   Person.init({
@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Person',
+    tableName: 'Persons'
   });
   return Person;
 };

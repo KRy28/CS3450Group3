@@ -3,23 +3,43 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const crypto = require('crypto')
+const session = require('express-session')
+const { passport } = require('./routes/login')
 
-
-
-const indexRouter = require('./routes/index');
 
 const app = express();
 
 const cors = require('cors');
+const corsOptions = {
+  origin: 'http://localhost:5173', // Replace with your frontend's URL
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}
+app.use(cors(corsOptions));
+app.use(session({
+  secret: 'NotASecret', // For security, replace this with an environment variable
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: true
+  } 
+}))
+app.use(passport.authenticate('session'))
+
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', `default-src 'self' http://localhost:3000`)
+  next()
+})
 
 // Allow cross-origin requests
-app.use(cors());
+
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: 'database/database_development'
-});
+const env = process.env.NODE_ENV || 'development'
+const sequelizeOptions = require("./database/config/config.js")
+const sequelize = new Sequelize(sequelizeOptions[env] || sequelizeOptions['development'])
 
 setImmediate(async () => {
   try {
@@ -37,6 +57,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
