@@ -12,9 +12,6 @@ router.get('/', function(req, res, next) {
 
 router.use('/users', usersRouter);
 router.use('/addWallet', addWalletRouter);
-router.use('/employees', employeesRouter);
-router.use('/managers', managersRouter);
-router.use('/persons', personsRouter);
 router.use('/reservations', reservationsRouter);
 router.use('/cars', carsRouter);
 router.use('/login', loginRouter);
