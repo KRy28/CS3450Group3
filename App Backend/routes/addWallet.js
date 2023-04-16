@@ -16,12 +16,12 @@ router.param('amount', function(req, res, next, amount) {
 });
 
 router.get('/get', async function(req, res, next) {
-  const person = await Person.findOne({ where: { username: 'WatsonMan'}})
+  const person = await Person.findOne({ where: { username: req.user.username}})
   res.json(person.wallet)
   // Idea is to use something like ~/add/21 to add 21 to the wallet
 });
 router.get('/add/:amount', async function(req, res, next) {
-  const person = await req.user
+  const person = await Person.findOne({ where: { username: req.user.username}})
   console.log(person)
   person.wallet = (person.wallet + req.amount)
   person.save()
@@ -29,7 +29,7 @@ router.get('/add/:amount', async function(req, res, next) {
 });
 
 router.get('/subtract/:amount', async function(req, res, next) {
-  const person = await req.person
+  const person = await Person.findOne({ where: { username: req.user.username}})
   person.wallet = (person.wallet - req.amount)
   person.save()
   // Idea is to use something like ~/add/21 to add 21 to the wallet
