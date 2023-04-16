@@ -1,6 +1,5 @@
 <template>
   <div class="Cart" style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
-    {{ fetch_info() }}
       <center>
           <h1>List of Cars</h1>    
           <p style="display:none">{{ total = 0 }}</p>
@@ -36,9 +35,13 @@ export default {
     }
 	},
 
+  async created(){
+        await this.fetch_info();
+    },
+
   methods: {
     fetch_info() {
-      fetch("http://localhost:3000/cars/json") // fetch data from the specified URL
+      return fetch("http://localhost:3000/cars/json") // fetch data from the specified URL
         .then(r => r.json()) // parse the response as JSON
         .then(json => {
           this.json = json // set the 'json' property to the parsed JSON data

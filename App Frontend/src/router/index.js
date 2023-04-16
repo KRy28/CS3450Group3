@@ -44,6 +44,21 @@ const router = createRouter({
       name: "list",
       component: () => import("../views/CarListView.vue")
     },
+    {
+      path: "/account",
+      name: "account",
+      component: () => import("../views/AccountView.vue")
+    },
+    {
+      path: "/manager",
+      name: "manager",
+      component: () => import("../views/ManagerAccountView.vue")
+    },
+    {
+      path: "/employee",
+      name: "employee",
+      component: () => import("../views/EmployeeAccountView.vue")
+    },
   ]
 });
 
