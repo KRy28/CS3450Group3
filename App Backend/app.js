@@ -7,6 +7,11 @@ const crypto = require('crypto')
 const session = require('express-session')
 const { passport } = require('./routes/login')
 
+// Import reservation route
+const reservationRoute = require('./routes/reservations');
+
+// Add middleware for reservation route
+app.use('/reservations', reservationRoute);
 
 const app = express();
 
