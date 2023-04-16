@@ -31,7 +31,8 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
   const stop_date = new Date(req.params.stop);
   const car_id = parseInt(req.params.car);
   const car = Car.findOne({ where: { id:car_id }}) 
-  const person = Person.findOne({ where: { username: req.user.username}})
+  try {
+    const person = Person.findOne({ where: { username: req.user.username}})
   const reservations = await Reservation.findAll({ where: { car_id: car_id }});
   function dateRangesIntersect(startA, endA, startB, endB) {
     return (startA <= endB && endA >= startB);
@@ -46,7 +47,7 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
       console.log("the Truth")
    }; 
   };
-  const diffTime = Math.abs(date2 - date1);
+  const diffTime = Math.abs(stop_date - start_date);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
   const cost = diffDays * car.rate; 
   if (check && person.wallet >= cost) {
@@ -65,8 +66,10 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
     res.json("FundsErr");
   } else {
     res.json("unknownErr")
+  }; 
+  } catch(err) {
+    res.json("LoggedOutErr")
   };
- 
 });
 
 module.exports = router;
