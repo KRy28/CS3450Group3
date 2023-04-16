@@ -17,7 +17,7 @@ router.param('amount', function(req, res, next, amount) {
 
 router.get('/get', async function(req, res, next) {
   const person = await Person.findOne({ where: { username: 'WatsonMan'}})
-  res.json(["" + person.wallet])
+  res.json(person.wallet)
   // Idea is to use something like ~/add/21 to add 21 to the wallet
 });
 router.get('/add/:amount', async function(req, res, next) {
