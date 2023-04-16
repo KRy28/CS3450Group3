@@ -24,7 +24,7 @@
                                     <p>Hours Worked: ___</p>
                                     <p>Hourly Wage: $___</p>
                                     <p>Amount to pay to employee: $__</p>
-                                    <button class="checkoutButton">Pay Employee</button>
+                                    <button class="checkoutButton" @click="payEmployee">Pay Employee</button>
                                 </div>
                             </div>    
                         </li>
@@ -57,7 +57,24 @@ export default {
         "#FCF3CF"  // Light yellow
       ];
       return colors[index % colors.length];
-    }
+    },
+    async payEmployee() {
+      try {
+        const response = await fetch(`http://localhost:3000/payment`, {
+          method: "GET",
+        });
+        
+        if (response.ok) {
+          alert("Employee Paid successfully!");
+        } else {
+          const error = await response.json();
+          alert(`Error: ${error.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while paying the employee.');
+      }
+  },
   }
 };
 </script>
