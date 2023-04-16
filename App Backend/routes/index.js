@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const usersRouter = require('./users');
 const carsRouter = require('./cars');
-const loginRouter = require('./login')
+const {router: loginRouter} = require('./login')
 
 router.get('/', function(req, res, next) {
   res.json(['/users', '/cars', '/HelloWorld.txt', '/login']);

@@ -54,4 +54,4 @@ router.post('/password',
   }
 )
 
-module.exports = router
+module.exports = { router, passport }

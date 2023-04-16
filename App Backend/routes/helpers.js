@@ -7,7 +7,7 @@ module.exports.authcodes = {
 }
 
 module.exports.isAuthenticated = (level) => (req, res, next) => {
-  if (req.user && req.elevation >= level) {
+  if (req.user && req.user.elevation >= level) {
     next(); // The user is authenticated
   } else {
     res.status(401).send('Not authenticated.');
@@ -15,7 +15,7 @@ module.exports.isAuthenticated = (level) => (req, res, next) => {
 }
 
 module.exports.isTheUser = (userId) => (req, res, next) => {
-  if (req.user.id === userId) {
+  if (req.user?.id === userId) {
     next();
   } else {
     res.status(401).send('Not authenticated')
