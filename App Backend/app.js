@@ -5,10 +5,13 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const crypto = require('crypto')
 const session = require('express-session')
-const passport = require('passport')
+const { passport } = require('./routes/login')
+
 
 const app = express();
-app.use(express.json())
+
+const cors = require('cors');
+app.use(cors());
 app.use(session({
   secret: 'NotASecret', // For security, replace this with an environment variable
   resave: false,
@@ -19,13 +22,14 @@ app.use(session({
   } 
 }))
 app.use(passport.authenticate('session'))
-const indexRouter = require('./routes/index');
 
-
-const cors = require('cors');
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', `default-src 'self' http://localhost:3000`)
+  next()
+})
 
 // Allow cross-origin requests
-app.use(cors());
+
 
 const Sequelize = require("sequelize");
 const env = process.env.NODE_ENV || 'development'
@@ -48,6 +52,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

@@ -17,7 +17,6 @@ const strategy = new LocalStrategy(async (username, password, next) => {
     if (!crypto.timingSafeEqual(person.hash, hashedPassword)) { // Is not timing agnostic, see crypto.timingSafeEqual for more secure version 
       return next(null, false, { message: 'Incorrect username or password.' })
     }
-    console.log('worked')
     return next(null, person)
   })
     .catch(err => {
@@ -29,7 +28,7 @@ const strategy = new LocalStrategy(async (username, password, next) => {
 passport.use(strategy)
 passport.serializeUser((person, next) => {
   process.nextTick(() => {
-    return next({
+    return next(null, {
       username: person.username,
       id: person.id,
       cart: person.cart,
@@ -55,4 +54,4 @@ router.post('/password',
   }
 )
 
-module.exports = router
+module.exports = { router, passport }
