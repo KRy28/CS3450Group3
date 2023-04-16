@@ -1,4 +1,6 @@
 <template>
+  <!-- <DateRangePicker :car-id="this.$route.params.id" @date-range-selected="onDateRangeSelected" /> -->
+  <!-- <DateRangePicker :car-id="this.$route.params.id" @date-range-selected="onDateRangeSelected" /> -->
   <main>
     <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
       <center>
@@ -35,37 +37,51 @@
 </template>
 
 <script>
+import { ref, computed, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { useStore } from "vuex";
+
 export default {
-  data() {
-  	return {
-      json: undefined,
-      car: undefined
-    }
-	},
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+    const store = useStore();
 
-  async created(){
-        await this.fetch_info();
-    },
+    const car = ref(null);
 
+    const fetchCar = async () => {
+      const response = await fetch(
+        'http://localhost:3000/cars/json'
+        // `https://api.example.com/cars/${route.params.id}`
+      );
+      car.value = await response.json();
+    };
 
-  methods: {
-    fetch_info() {
-      // Fetch the car data from the JSON API
-      return fetch("http://localhost:3000/cars/json")
-        .then(r => r.json())
-        .then(json => {
-          // Set the json data to the component's data
-          this.json = json
-          console.log(json)
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    },
-  }
-  
-}
+    onMounted(() => {
+      fetchCar();
+    });
+
+    const startDate = ref("");
+    const endDate = ref("");
+
+    const submitReservation = () => {
+      store.dispatch("setSelectedCar", car.value);
+      router.push({
+        name: "RentalConfirmation",
+        params: { carId: car.value.id, startDate: startDate.value, endDate: endDate.value },
+      });
+    };
+
+    return {
+      car,
+      startDate,
+      endDate,
+      submitReservation,
+    };
+  },
+};
 </script>
+
 
 <style>
   /* Style the description box */

@@ -1,7 +1,9 @@
 <!-- src/views/CalendarView.vue -->
 <template>
   <div id="app">
-    <DateRangePicker class="centered" />
+    <!-- <DateRangePicker class="centered" /> -->
+    <DateRangePicker :car-id="carId" @date-range-selected="onDateRangeSelected" />
+
   </div>
 </template>
 
@@ -9,10 +11,21 @@
 import DateRangePicker from "../components/DateRangePicker.vue";
 
 export default {
+  data() {
+    return {
+      carId: '1', // Default ID
+    };
+  },
   components: {
     DateRangePicker,
   },
+  methods: {
+    onDateRangeSelected(range) {
+      console.log(range);
+    },
+  },
 };
+
 </script>
 
 <style>
