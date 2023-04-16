@@ -9,13 +9,11 @@ const carsRouter = require('./cars');
 const {router: loginRouter} = require('./login')
 
 router.get('/', function(req, res, next) {
-  res.json(['/users', '/addWallet', '/employees', 'managers', '/persons', 'reservations', '/cars', '/HelloWorld.txt', '/login']);
+  res.json(['/users', '/addWallet', 'reservations', '/cars', '/HelloWorld.txt', '/login']);
 });
 
 router.use('/users', usersRouter);
 router.use('/addWallet', addWalletRouter);
-router.use('/managers', managersRouter);
-router.use('/persons', personsRouter);
 router.use('/reservations', reservationsRouter);
 router.use('/cars', carsRouter);
 router.use('/login', loginRouter);
