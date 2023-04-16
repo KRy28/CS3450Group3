@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const { Reservation } = require('../database/models')
+const { Person } = require('../database/models')
+const { Car } = require('../database/models')
 
 router.get('/', function(req, res, next) {
   res.json(['/json', '/add']);
@@ -28,6 +30,8 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
   const start_date = new Date(req.params.start);
   const stop_date = new Date(req.params.stop);
   const car_id = parseInt(req.params.car);
+  const car = Car.findOne({ where: { id:car_id }}) 
+  const person = Person.findOne({ where: { username: req.user.username}})
   const reservations = await Reservation.findAll({ where: { car_id: car_id }});
   function dateRangesIntersect(startA, endA, startB, endB) {
     return (startA <= endB && endA >= startB);
@@ -42,14 +46,27 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
       console.log("the Truth")
    }; 
   };
-  if (check) {
+  const diffTime = Math.abs(date2 - date1);
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  const cost = diffDays * car.rate; 
+  if (check && person.wallet >= cost) {
     const reservation = await Reservation.create({
       start: start_date,
       stop: stop_date,
       person_id: req.user.id,
       car_id: car_id
-    })
+    });
+    person.wallet = person.wallet - cost;
+    person.save();
+    res.json("Success");
+  } else if (!check) {
+    res.json("OverlapErr");
+  } else if (person.wallet < cost) {
+    res.json("FundsErr");
+  } else {
+    res.json("unknownErr")
   };
+ 
 });
 
 module.exports = router;
