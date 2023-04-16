@@ -16,8 +16,7 @@ router.param('amount', function(req, res, next, amount) {
 });
 
 router.get('/add/:amount', async function(req, res, next) {
-  console.log(req.amount)
-  const person = await req.person
+  const person = await req.user
   console.log(person)
   person.wallet = (person.wallet + req.amount)
   person.save()
