@@ -7,7 +7,6 @@ const crypto = require('crypto')
 const session = require('express-session')
 const { passport } = require('./routes/login')
 
-
 const app = express();
 
 const cors = require('cors');
@@ -30,7 +29,6 @@ app.use((req, res, next) => {
 
 // Allow cross-origin requests
 
-
 const Sequelize = require("sequelize");
 const env = process.env.NODE_ENV || 'development'
 const sequelizeOptions = require("./database/config/config.js")
@@ -45,7 +43,6 @@ setImmediate(async () => {
   }
 })
 
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -54,6 +51,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
+
+// Import addWallet route
+const addWalletRoute = require('./routes/addWallet');
+// Add middleware for addWallet route
+app.use(addWalletRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
