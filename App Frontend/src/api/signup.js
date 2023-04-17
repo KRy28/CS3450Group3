@@ -1,10 +1,11 @@
 import axios from 'axios'
-import store from '../store'
-import router from '../router'
-export default async function login ({username, password}) {
-  return axios.post('/login/password', {
+export default async function signup ({username, password, firstName, lastName, email}) {
+  return axios.post('/login/signup', {
     username,
-    password
+    password,
+    firstName,
+    lastName,
+    email
   }, {withCredentials: true})
   .then(user => {
     store.dispatch('setUser', user.data)
