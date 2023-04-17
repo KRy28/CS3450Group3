@@ -1,19 +1,16 @@
 <!-- src/components/DateRangePicker.vue -->
-<!-- Define the template for the component -->
+
 <template>
   <div class="date-range-picker">
     <h1>Car Rental Date Range Picker</h1>
-    <!-- Input field for the start date, bound to the startDate property and with a minimum date of minDate -->
     <div class="input-wrapper">
       <label for="start-date">Start Date:</label>
       <input id="start-date" type="date" v-model="startDate" :min="minDate" @input="checkDates" />
     </div>
-    <!-- Input field for the end date, bound to the endDate property and with a minimum date of either startDate or minDate -->
     <div class="input-wrapper">
       <label for="end-date">End Date:</label>
       <input id="end-date" type="date" v-model="endDate" :min="startDate || minDate" @input="checkDates" />
     </div>
-    <!-- Display a summary of the selected dates if both start and end dates are selected -->
     <div v-if="startDate && endDate" class="summary">
       <p>Start Date: {{ formattedStartDate }}</p>
       <p>End Date: {{ formattedEndDate }}</p>
@@ -24,69 +21,71 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+
 export default {
-  // Define the data properties of the component
+  props: {
+    carId: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      startDate: "", // Start date input value
-      endDate: "", // End date input value
-      minDate: "", // Minimum date for the date picker
+      startDate: "",
+      endDate: "",
+      minDate: "",
     };
   },
-  
-  // Called when the component is mounted to the DOM
-  mounted() {
-    this.minDate = this.tomorrow(); // Set the minimum date to tomorrow
+
+  setup() {
+    const router = useRouter();
+    return {
+      router,
+    };
   },
-  
-  // Computed properties that are calculated based on other data properties
+
+  mounted() {
+    this.minDate = this.tomorrow();
+  },
+
   computed: {
     formattedStartDate() {
-      return this.formatDate(this.startDate); // Format the start date
+      return this.formatDate(this.startDate);
     },
     formattedEndDate() {
-      return this.formatDate(this.endDate); // Format the end date
+      return this.formatDate(this.endDate);
     },
     totalDays() {
       if (!this.startDate || !this.endDate) {
-        return 0; // If either date is not set, return 0
+        return 0;
       }
-      // Calculate the total number of days between start and end dates
       const start = new Date(this.startDate);
       const end = new Date(this.endDate);
       return (end - start) / (1000 * 60 * 60 * 24) + 1;
     },
   },
-  
-  // Methods that can be called by the component
+
   methods: {
     formatDate(dateString) {
-      // Split the dateString into its components
       const [year, month, day] = dateString.split("-");
-
-      // Create a date object using the components (adjust month since it's 0-indexed)
       const date = new Date(year, month - 1, day);
-
-      // Return the formatted date in MM-DD-YYYY format
       return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
     },
 
     tomorrow() {
-      const today = new Date(); // Get today's date
+      const today = new Date();
       const tomorrow = new Date(today);
-      tomorrow.setDate(tomorrow.getDate() + 1); // Set the date to tomorrow
-
-      // Return the date string in YYYY-MM-DD format
+      tomorrow.setDate(tomorrow.getDate() + 1);
       return tomorrow.toISOString().split("T")[0];
     },
+
     checkDates() {
       if (this.startDate && this.endDate) {
         if (this.startDate > this.endDate) {
-          // Show an alert if the end date is earlier than the start date
           alert("End date should be greater than or equal to start date.");
           this.endDate = "";
         } else {
-          // Emit an event to notify the parent component that a valid date range is selected
           this.$emit("date-range-selected", {
             startDate: this.startDate,
             endDate: this.endDate,
@@ -94,25 +93,37 @@ export default {
         }
       }
     },
+
     async submitReservation() {
-    if (this.startDate && this.endDate) {
-      try {
-        const response = await fetch(`/reservations/add/1/${this.startDate}/${this.endDate}`, {
-          method: "GET",
-        });
-        
-        if (response.ok) {
-          alert("Reservation made successfully!");
-        } else {
-          const error = await response.json();
-          alert(`Error: ${error.message}`);
+      if (this.startDate && this.endDate) {
+        try {
+          const response = await fetch(
+            `/reservations/add/1/${this.startDate}/${this.endDate}`,
+            {
+              method: "GET",
+            }
+          );
+
+          if (response.ok) {
+            // this.router.push({
+            //   name: "RentalConfirmation",
+            //   params: {
+            //     carId: this.carId,
+            //     startDate: this.startDate,
+            //     endDate: this.endDate,
+            //   },
+            // });
+            this.router.push(`/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`);
+          } else {
+            const error = await response.json();
+            alert(`Error: ${error.message}`);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("An error occurred while making the reservation.");
         }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred while making the reservation.');
-      }
-    } else {
-      alert("Please select a valid date range.");
+      } else {
+        alert("Please select a valid date range.");
     }
   },
   },
