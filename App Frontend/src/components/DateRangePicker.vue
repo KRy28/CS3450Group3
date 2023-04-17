@@ -93,19 +93,27 @@ export default {
         }
       }
     },
-
     submitReservation() {
-      console.log("submitReservation called in DateRangePicker");
-      if (this.startDate && this.endDate) {
-        this.$emit("reservation-submitted", {
-          carId: this.carId,
-          startDate: this.startDate,
-          endDate: this.endDate,
-        });
-      } else {
-        alert("Please select a valid date range.");
-      }
-    },
+  console.log("submitReservation called in DateRangePicker");
+  this.$emit("reservation-submitted", {
+    carId: this.carId,
+    startDate: this.startDate,
+    endDate: this.endDate,
+  });
+},
+
+    // submitReservation() {
+    //   console.log("submitReservation called in DateRangePicker");
+    //   if (this.startDate && this.endDate) {
+    //     this.$emit("reservation-submitted", {
+    //       carId: this.carId,
+    //       startDate: this.startDate,
+    //       endDate: this.endDate,
+    //     });
+    //   } else {
+    //     alert("Please select a valid date range.");
+    //   }
+    // },
   },
 };
 </script>
