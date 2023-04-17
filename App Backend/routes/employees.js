@@ -22,6 +22,4 @@ router.get('/string', async function(req, res, next) {
   res.send(users.map(u => u.firstName).join(', '));
 });
 
-
-
 module.exports = router;

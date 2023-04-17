@@ -19,6 +19,7 @@
       <p>End Date: {{ formattedEndDate }}</p>
       <p>Total Days: {{ totalDays }}</p>
     </div>
+    <button @click="submitReservation">Submit Reservation</button>
   </div>
 </template>
 
@@ -93,6 +94,27 @@ export default {
         }
       }
     },
+    async submitReservation() {
+    if (this.startDate && this.endDate) {
+      try {
+        const response = await fetch(`/reservations/add/1/${this.startDate}/${this.endDate}`, {
+          method: "GET",
+        });
+        
+        if (response.ok) {
+          alert("Reservation made successfully!");
+        } else {
+          const error = await response.json();
+          alert(`Error: ${error.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while making the reservation.');
+      }
+    } else {
+      alert("Please select a valid date range.");
+    }
+  },
   },
 };
 </script>
