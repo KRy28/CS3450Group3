@@ -10,14 +10,15 @@ import DateRangePicker from "../components/DateRangePicker.vue";
 export default {
   data() {
     return {
-      carId: null,
+      carId: '',
     };
   },
   components: {
     DateRangePicker,
   },
   created() {
-    this.carId = this.$route.params.carId;
+    // this.carId = this.$route.params.carId;
+    this.carId = this.$route.params.id;
   },
   methods: {
     onDateRangeSelected(range) {

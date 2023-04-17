@@ -1,5 +1,6 @@
 <!-- src/components/DateRangePicker.vue -->
 
+
 <template>
   <div class="date-range-picker">
     <h1>Car Rental Date Range Picker</h1>
@@ -94,12 +95,14 @@ export default {
       }
     },
     submitReservation() {
-  console.log("submitReservation called in DateRangePicker");
-  this.$emit("reservation-submitted", {
-    carId: this.carId,
-    startDate: this.startDate,
-    endDate: this.endDate,
-  });
+      console.log("submitReservation called in DateRangePicker");
+      if (this.startDate && this.endDate) {
+        this.router.push(
+          `/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`
+        );
+      } else {
+        alert("Please select a valid date range.");
+      }
 },
 
     // submitReservation() {

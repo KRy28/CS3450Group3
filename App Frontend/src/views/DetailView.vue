@@ -1,7 +1,7 @@
 <template>
   <DateRangePicker 
       :carId="carId"  
-      @reservation-submitted="handleReservation" />
+      @submit="handleReservation" />
   <main>
     <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
       <!-- <center> -->
