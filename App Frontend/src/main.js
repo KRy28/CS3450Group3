@@ -3,9 +3,9 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import "./assets/main.css";
-//import VCalendar from 'v-calendar';
+import axios from 'axios'
 
-// import 'v-calendar/lib/v-calendar.min.css';
+axios.defaults.baseURL ='http://localhost:3000'
 
 const app = createApp(App);
 

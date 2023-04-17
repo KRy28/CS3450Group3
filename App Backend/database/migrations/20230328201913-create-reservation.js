@@ -10,6 +10,28 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.createTable('Reservations', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      start: {
+        allowNull: false,
+	type: Sequelize.DATEONLY
+      },
+      stop: {
+        allowNull: false,
+	type: Sequelize.DATEONLY
+      },
+      car_id: {
+	allowNull: false,
+	type: Sequelize.INTEGER
+      },
+      person_id: {
+	allowNull: false,
+	type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

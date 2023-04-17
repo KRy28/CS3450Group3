@@ -99,3 +99,10 @@ have already been generated.
 ## Scrum documents
 
 They can be found in docs/scrumMilestone3/
+
+## Presentation
+
+can be found at: 
+/docs/presentation
+or 
+https://docs.google.com/presentation/d/1BtV3ePxTkxE1OrxPIj8Qrl9AGrBDBaMe4zalUUzhhPM/edit#slide=id.g2189308b72f\_0\_123

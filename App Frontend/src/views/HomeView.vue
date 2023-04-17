@@ -1,5 +1,22 @@
-<script setup>
-import TheWelcome from "../components/TheWelcome.vue";
+<template>
+  <main>
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+      <center>
+            <h1>Dan's Car Barn</h1>
+            <h2>Rent-A-Car</h2>
+            <RouterLink class="buttons" to="/search">Search </RouterLink>
+            <RouterLink class="buttons" to="/aboutContact">About Us</RouterLink>
+            <RouterLink class="buttons" to="/aboutContact">Contact Us</RouterLink>
+            <RouterLink class="buttons" to="/login">Log In</RouterLink>
+      </center>
+  </div>
+  </main>
+</template>
+
+<script>
+  export default {
+    name: 'HomeView'
+  }
 </script>
 
 <style>
@@ -21,18 +38,3 @@ import TheWelcome from "../components/TheWelcome.vue";
   background-color: #0069d9; /* darken background color on hover */
 }
 </style>
-
-<template>
-  <main>
-    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-      <center>
-            <h1>Dan's Car Barn</h1>
-            <h2>Rent-A-Car</h2>
-            <RouterLink class="buttons" to="/search">Search </RouterLink>
-            <RouterLink class="buttons" to="/aboutContact">About Us</RouterLink>
-            <RouterLink class="buttons" to="/aboutContact">Contact Us</RouterLink>
-            <RouterLink class="buttons" to="/login">Log In</RouterLink>
-      </center>
-  </div>
-  </main>
-</template>
