@@ -24,6 +24,14 @@ module.exports = {
         allowNull: false,
 	type: Sequelize.DATEONLY
       },
+      car_id: {
+	allowNull: false,
+	type: Sequelize.INTEGER
+      },
+      person_id: {
+	allowNull: false,
+	type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
