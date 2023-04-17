@@ -11,7 +11,8 @@
         <p>Reservation dates: {{ startDate }} - {{ endDate }}</p>
         <p>Total days: {{ totalDays }}</p>
         <p>Total price: ${{ totalPrice }}</p>
-        <button class="checkout-button">Checkout</button>
+        <button class="checkout-button" @click="$router.push('/purchase-complete')">Checkout</button>
+
       </div>
     </div>
   </template>
@@ -37,7 +38,8 @@
       onMounted(() => {
         fetchCarDetails();
       });
-  
+      
+      
       const totalDays = computed(() => {
         const start = new Date(startDate);
         const end = new Date(endDate);
