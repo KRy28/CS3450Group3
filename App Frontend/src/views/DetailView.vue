@@ -1,10 +1,13 @@
 <template>
+  <DateRangePicker 
+      :carId="carId"  
+      @submit="handleReservation" />
   <main>
     <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
       <center>
         
         <!-- Loop through each car in the json data and display its info -->
-        <li v-for="car in json" style="list-style-type: none;">
+          <li v-for="car in json" style="list-style-type: none;" @click="carId = car.id">
           <!-- Display the car's make and model if its id matches the id in the URL -->
           <h1 v-if="car.id == this.$route.params.id">{{ car.make }} {{ car.model }}</h1>
           
@@ -26,7 +29,9 @@
           </div>
           
           <!-- Display a link to the calendar page if the car's id matches the id in the URL -->
-          <RouterLink v-if="car.id == this.$route.params.id" class="checkoutButton" :to="`/calendar`">Rent</RouterLink>
+          <!-- <RouterLink v-if="car.id == this.$route.params.id" class="checkoutButton" :to="`/calendar`">Rent</RouterLink> -->
+          <RouterLink v-if="car.id == this.$route.params.id" class="checkoutButton" :to="`/calendar/${car.id}`">Rent</RouterLink>
+
         </li>
       </center>
 
@@ -37,16 +42,17 @@
 <script>
 export default {
   data() {
-  	return {
-      json: undefined,
-      car: undefined
-    }
-	},
+  return {
+    json: undefined,
+    car: undefined,
+    carId: null
+  }
+},
+
 
   async created(){
-        await this.fetch_info();
-    },
-
+    await this.fetch_info();
+  },
 
   methods: {
     fetch_info() {
@@ -62,10 +68,14 @@ export default {
           console.log(error);
         })
     },
+    handleReservation({ carId, startDate, endDate }) {
+      console.log("handleReservation called in DetailView");
+      this.$router.push(`/rental-confirmation/${carId}/${startDate}/${endDate}`);
+    },
   }
-  
 }
 </script>
+
 
 <style>
   /* Style the description box */
