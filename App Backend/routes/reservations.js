@@ -44,7 +44,6 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
    var stop = new Date(item.stop)
    if (dateRangesIntersect(start_date, stop_date, start, stop)) {
       check = false;
-      console.log("the Truth")
    }; 
   };
   const diffTime = Math.abs(stop_date - start_date);
