@@ -6,6 +6,7 @@ const personsRouter = require('./persons');
 const reservationsRouter = require('./reservations');
 const carsRouter = require('./cars');
 const addHoursRouter = require('./addHours');
+const paymentRouter = require('./payment');
 const {router: loginRouter} = require('./login')
 
 router.get('/', function(req, res, next) {
@@ -17,6 +18,7 @@ router.use('/addHours', addHoursRouter);
 router.use('/addWallet', addWalletRouter);
 router.use('/reservations', reservationsRouter);
 router.use('/cars', carsRouter);
+router.use('/payment', paymentRouter);
 router.use('/login', loginRouter);
 
 
