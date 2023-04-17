@@ -1,6 +1,6 @@
 <template>
-  <div class="login">
-    <h1>Dan's Car Barn Login</h1>
+  <div class="signup">
+    <h1>Dan's Car Barn Signup</h1>
     <form onsubmit="return false">
       <div class="form-group">
         <label for="username">Username:</label>
@@ -10,44 +10,54 @@
         <label for="password">Password:</label>
         <input v-model="password" type="password" id="password" name="password" required>
       </div>
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input v-model="firstName" id="firstName" name="firstName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input v-model="lastName" id="lastName" name="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input v-model="email" id="email" name="email" required>
+      </div>
       <button @click="login">Login</button>
     </form>
-    <hr>
-    <div>OR</div>
-    <button @click="goToSignup">Sign up</button>
   </div>
 </template>
 
 <script>
-import loginAPI from '../api/login'
+import signupAPI from '../api/signup'
 import router from '../router'
 export default {
-  name: 'LoginView',
+  name: 'SignupView',
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: '',
+      email: ''
     }
   },
   methods: {
     async login () {
-      console.log(this.username, this.password)
-      return loginAPI({username: this.username, password: this.password})
-      .catch(err => {
-        console.log('error', err)
+      return signupAPI({
+        username: this.username,
+        password: this.password,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email
       })
-    },
-    
-    goToSignup () {
-      router.push('/signup')
     }
-  },    
+  }
 }
 </script>
 
-<style>
+<style scoped>
 @media (min-width: 1024px) {
-  .login {
+  .signup {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -66,8 +76,7 @@ label {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-input,
-input[type="password"] {
+input {
   padding: 0.5rem;
   border-radius: 0.25rem;
   border: 1px solid #ccc;

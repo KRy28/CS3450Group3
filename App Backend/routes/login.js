@@ -31,6 +31,7 @@ passport.serializeUser((person, next) => {
     return next(null, {
       username: person.username,
       id: person.id,
+      wallet: person.wallet,
       cart: person.cart,
       elevation: person.elevation
     })
@@ -48,10 +49,33 @@ router.get('/', function (req, res) {
 })
 
 router.post('/password',
-  passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
+  passport.authenticate('local', { failWithMessage: true }),
   function(req, res) {
-    res.send('login success!!')
+    res.json(req.user)
   }
 )
+
+router.post('/signup', async function (req, res) {
+  const exists = await Person.findOne({ where: { username: req.body.username }})
+  if (exists) {
+    res.status(409).sendMessage('A user already exists with that username')
+  } else {
+    const newPerson = await Person.create({
+       firstName: req.body.firstName,
+       lastName: req.body.lastName,
+       email: req.body.email,
+       hash: await generateHashedPassword(req.body.password),
+       username: req.body.username,
+       wallet: 0,
+       elevation: 1,
+       createdAt: new Date(),
+       updatedAt: new Date(),
+    })
+    req.login(newPerson.username, err => {
+      if (err) return next(err)
+      res.json(req.user)
+    })
+  }
+})
 
 module.exports = { router, passport }

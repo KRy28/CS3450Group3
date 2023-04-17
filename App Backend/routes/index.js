@@ -8,6 +8,7 @@ const carsRouter = require('./cars');
 const addHoursRouter = require('./addHours');
 const paymentRouter = require('./payment');
 const {router: loginRouter} = require('./login')
+const currentRouter = require('./current')
 
 router.get('/', function(req, res, next) {
   res.json(['/users', '/addWallet', 'reservations', '/cars', '/HelloWorld.txt', '/login']);
@@ -20,6 +21,7 @@ router.use('/reservations', reservationsRouter);
 router.use('/cars', carsRouter);
 router.use('/payment', paymentRouter);
 router.use('/login', loginRouter);
+router.use('/current', currentRouter);
 
 
 module.exports = router;
