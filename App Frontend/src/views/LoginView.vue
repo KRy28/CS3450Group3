@@ -32,6 +32,7 @@ export default {
   methods: {
     async login () {
       console.log(this.username, this.password)
+      console.log(loginAPI({username: this.username, password: this.password}));
       return loginAPI({username: this.username, password: this.password})
       .catch(err => {
         console.log('error', err)

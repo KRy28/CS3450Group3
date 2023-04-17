@@ -2,37 +2,28 @@
     <main>
         <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">    
             <center>
-                <h1>Hello (Manager)!</h1>
+                <h1 v-if="user">Hello {{ user.username }}!</h1>
                 <h2>Currently Rented Cars</h2>
                         <li style="list-style-type: none">
                             <div class="container" :style="{ backgroundColor: getColor(index), padding: '15px', borderRadius: '10px', margin: '10px' }">
                                 <div>
-                                    <p><strong>(Car)</strong></p>
+                                    <p><strong>Coming Soon...</strong></p>
                                 </div>
-                                <div>
-                                    <p>Insurance purchased: (yes/no) </p><button class="checkoutButton">Breakdown Car (if no Insurance)</button>
-                                </div>
+                                
                             </div>    
                         </li>
                 <h2>Employees</h2>
                 <li style="list-style-type: none">
                             <div class="container" :style="{ backgroundColor: getColor(index), padding: '15px', borderRadius: '10px', margin: '10px' }">
-                                <div>
-                                    <p><strong>(Employee)</strong></p>
-                                </div>
-                                <div class="form-group">
-                                    <p>Hours Worked: ___</p>
-                                    <p>Hourly Wage: $___</p>
-                                    <p>Amount to pay to employee: $__</p>
-                                    <button class="checkoutButton" @click="payEmployee">Pay Employee</button>
-                                </div>
+                                
+                                    <button class="checkoutButton" @click="payEmployee">Pay Employees</button>
                             </div>    
                         </li>
-                <h3>Balance: $____</h3>
+                <h3>Balance: ${{ user.wallet.toLocaleString('en', {useGrouping:true}) }}</h3>
                 <div class="form-group">
                     <label for="addFunds">Add funds: $</label>
                     <input type="number" id="addFunds">
-                    <button>+</button>
+                    <button @click="updateWallet(5)">+</button>
                 </div>
             </center>
         </div>
@@ -48,7 +39,32 @@ export default {
     }
 	},
 
+  computed: {
+    user () {
+      return this.$store.getters.getUser
+    }
+  },
+
   methods: {
+    async updateWallet(amount) {
+      console.log(this.$store.getters.getUser)
+      try {
+        const response = await fetch(`http://localhost:3000/addWallet/add/${amount}`, {
+          method: "GET",
+        });
+        
+        if (response.ok) {
+          alert("Employees Paid successfully!");
+        } else {
+          const error = await response.json();
+          alert(`Error: ${error.message}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while paying the employee.');
+      }
+  },
+
     
     getColor(index) {
       const colors = [
@@ -59,13 +75,14 @@ export default {
       return colors[index % colors.length];
     },
     async payEmployee() {
+      console.log(this.$store.getters.getUser)
       try {
         const response = await fetch(`http://localhost:3000/payment`, {
           method: "GET",
         });
         
         if (response.ok) {
-          alert("Employee Paid successfully!");
+          alert("Employees Paid successfully!");
         } else {
           const error = await response.json();
           alert(`Error: ${error.message}`);
