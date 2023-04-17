@@ -5,14 +5,31 @@
     <RouterLink class="link" to="/search">Search</RouterLink>
     <RouterLink class="link" to="/list/null/null/null/null">All Cars</RouterLink>
     <RouterLink class="link" to="/cart">Cart</RouterLink>
-    <RouterLink class="link" to="/login">Login</RouterLink>
-
+    <a v-if="user" class="link" @click="logout">Logout</a>
+    <RouterLink v-else class="link" to="/login">Login</RouterLink>
   </nav>
 </template>
 
 <script>
+import axios from 'axios';
+import router from '../router';
+
 export default {
-  
+  name: 'TheNavigationBar',
+  computed: {
+    user () {
+      return this.$store.getters.getUser
+    }
+  },
+  methods: {
+    logout () {
+      axios.post('/current/logout', {}, {withCredentials: true})
+      .then(() => {
+        this.$store.dispatch('setUser', null)
+        router.push('/')
+      })
+    }
+  }
 }
 </script>
 

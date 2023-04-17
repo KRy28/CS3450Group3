@@ -24,13 +24,15 @@ app.use(cors(corsOptions));
 app.use(session({
   secret: 'NotASecret', // For security, replace this with an environment variable
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
+    secure: false,
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: true
   } 
 }))
-app.use(passport.authenticate('session'))
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Add middleware for reservation route
 //app.use('/reservations', reservationRoute);
