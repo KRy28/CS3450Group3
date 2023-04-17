@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
+//import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   props: {
@@ -41,8 +42,10 @@ export default {
 
   setup() {
     const router = useRouter();
+    const route = useRoute();
     return {
       router,
+      route,
     };
   },
 
@@ -97,9 +100,10 @@ export default {
     submitReservation() {
       console.log("submitReservation called in DateRangePicker");
       if (this.startDate && this.endDate) {
-        this.router.push(
-          `/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`
-        );
+        // this.router.push(
+        //   `/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`
+        // );
+        this.router.push(`/rental-confirmation/${this.route.params.carId}/${this.startDate}/${this.endDate}`);
       } else {
         alert("Please select a valid date range.");
       }
