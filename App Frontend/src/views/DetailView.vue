@@ -4,7 +4,7 @@
       @submit="handleReservation" />
   <main>
     <div style="font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif">
-      <!-- <center> -->
+      <center>
         
         <!-- Loop through each car in the json data and display its info -->
           <li v-for="car in json" style="list-style-type: none;" @click="carId = car.id">
@@ -33,7 +33,7 @@
           <RouterLink v-if="car.id == this.$route.params.id" class="checkoutButton" :to="`/calendar/${car.id}`">Rent</RouterLink>
 
         </li>
-      <!-- </center> -->
+      </center>
 
     </div>
   </main>
