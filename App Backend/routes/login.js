@@ -31,6 +31,7 @@ passport.serializeUser((person, next) => {
     return next(null, {
       username: person.username,
       id: person.id,
+      wallet: person.wallet,
       cart: person.cart,
       elevation: person.elevation
     })

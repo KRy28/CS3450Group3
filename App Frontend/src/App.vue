@@ -3,7 +3,7 @@
     
   <!-- eslint-disable vue/no-multiple-template-root -->
   <div id="content">
-    <span class="greeting" v-if="user">Hello {{ user.username }}!</span>
+    <span class="greeting" v-if="user">Hello {{ user.username }}! You have {{ user.wallet }} dollar(s)</span>
     <RouterView />
   </div>
   <!-- eslint-enable -->  
