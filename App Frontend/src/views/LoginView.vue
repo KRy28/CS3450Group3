@@ -30,7 +30,7 @@ export default {
     async login () {
       console.log(this.username, this.password)
       return loginAPI(this.username, this.password).then(
-        router.push('/cart')
+        router.push('/manager')
       )
     }
     
