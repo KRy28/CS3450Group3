@@ -106,3 +106,16 @@ can be found at:
 /docs/presentation
 or 
 https://docs.google.com/presentation/d/1BtV3ePxTkxE1OrxPIj8Qrl9AGrBDBaMe4zalUUzhhPM/edit#slide=id.g2189308b72f\_0\_123
+
+## Login
+user: 
+WatsonMan 
+12345678SUM
+
+employee:
+1WatsonMan
+112345678SUM
+
+manager:
+2WatsonMan
+212345678SUM
