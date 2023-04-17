@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import RentalConfirmation from '../components/RentalConfirmation.vue';
+import PurchaseComplete from "@/views/PurchaseComplete.vue";
+import DateRangePicker from "../components/DateRangePicker.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,11 +42,16 @@ const router = createRouter({
       name: "cart",
       component: () => import("../views/CartView.vue"),
     },
+    // {
+    //   path: "/calendar",
+    //   name: "calendar",
+    //   component: () => import("../views/CalendarView.vue"),
+    // },
     {
-      path: "/calendar",
+      path: "/calendar/:carId",
       name: "calendar",
-      component: () => import("../views/CalendarView.vue"),
-    },
+      component: DateRangePicker,
+    },    
     {
       path: "/list/:make/:model/:minPrice/:maxPrice",
       name: "list",
@@ -69,6 +76,11 @@ const router = createRouter({
       path: "/rental-confirmation/:carId/:startDate/:endDate",
       name: "RentalConfirmation",
       component: RentalConfirmation,
+    },
+    {
+      path: "/purchase-complete",
+      name: "PurchaseComplete",
+      component: PurchaseComplete,
     },
   ]
 });

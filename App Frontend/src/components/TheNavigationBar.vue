@@ -4,7 +4,6 @@
     <RouterLink class="link" to="/aboutContact">About/Contact</RouterLink>
     <RouterLink class="link" to="/search">Search</RouterLink>
     <RouterLink class="link" to="/list/null/null/null/null">All Cars</RouterLink>
-    <RouterLink class="link" to="/cart">Cart</RouterLink>
     <a v-if="user" class="link" @click="logout">Logout</a>
     <RouterLink v-else class="link" to="/login">Login</RouterLink>
   </nav>

@@ -1,5 +1,6 @@
 <!-- src/components/DateRangePicker.vue -->
 
+
 <template>
   <div class="date-range-picker">
     <h1>Car Rental Date Range Picker</h1>
@@ -21,7 +22,8 @@
 </template>
 
 <script>
-import { useRouter } from "vue-router";
+//import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 export default {
   props: {
@@ -40,8 +42,10 @@ export default {
 
   setup() {
     const router = useRouter();
+    const route = useRoute();
     return {
       router,
+      route,
     };
   },
 
@@ -93,42 +97,34 @@ export default {
         }
       }
     },
-
-    async submitReservation() {
+    submitReservation() {
+      console.log("submitReservation called in DateRangePicker");
       if (this.startDate && this.endDate) {
-        try {
-          const response = await fetch(
-            `/reservations/add/1/${this.startDate}/${this.endDate}`,
-            {
-              method: "GET",
-            }
-          );
-
-          if (response.ok) {
-            // this.router.push({
-            //   name: "RentalConfirmation",
-            //   params: {
-            //     carId: this.carId,
-            //     startDate: this.startDate,
-            //     endDate: this.endDate,
-            //   },
-            // });
-            this.router.push(`/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`);
-          } else {
-            const error = await response.json();
-            alert(`Error: ${error.message}`);
-          }
-        } catch (error) {
-          console.error("Error:", error);
-          alert("An error occurred while making the reservation.");
-        }
+        // this.router.push(
+        //   `/rental-confirmation/${this.carId}/${this.startDate}/${this.endDate}`
+        // );
+        this.router.push(`/rental-confirmation/${this.route.params.carId}/${this.startDate}/${this.endDate}`);
       } else {
         alert("Please select a valid date range.");
-    }
-  },
+      }
+},
+
+    // submitReservation() {
+    //   console.log("submitReservation called in DateRangePicker");
+    //   if (this.startDate && this.endDate) {
+    //     this.$emit("reservation-submitted", {
+    //       carId: this.carId,
+    //       startDate: this.startDate,
+    //       endDate: this.endDate,
+    //     });
+    //   } else {
+    //     alert("Please select a valid date range.");
+    //   }
+    // },
   },
 };
 </script>
+
 
 <style scoped>
 /* Main container for the date range picker */
