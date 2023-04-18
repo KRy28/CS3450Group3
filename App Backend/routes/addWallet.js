@@ -21,6 +21,7 @@ router.get('/get', async function(req, res, next) {
       res.json(person.wallet)
     };
   } catch(err) {
+    console.log(err);
     res.json("unknownFatalErr");
   };
 });
@@ -39,6 +40,7 @@ router.get('/add/:amount', async function(req, res, next) {
       res.json("Success");
     };
   } catch(err) {
+    console.log(err);
     res.json("unknownFatalErr");
   };
 });
@@ -58,6 +60,7 @@ router.get('/subtract/:amount', async function(req, res, next) {
       res.json("Success");
     };
   } catch(err) {
+    console.log(err);
     res.json("unknownFatalErr");
   };
 });

@@ -8,24 +8,14 @@ const { Car } = require('../database/models')
 router.get('/', function(req, res, next) {
   res.json(['/json', '/add']);
 });
-/*
-router.param('car', 'start', 'stop', function(req, res, next, car, start, stop) {
-    const car_id = parseInt(car);
-    //need to set const for start and end dates
-    const start_date = new date(start);
-    const end_date = new date(stop);
-    req.car = car_id;
-    req.start = start_date;
-    req.stop = stop_date;
-    next();
-   
-});*/
+
 
 router.get('/get', async function(req, res, next) {i
   try {
     const reservations = await Reservation.findAll()
     res.json(reservations);
   } catch(err) {
+    console.log(err);
     res.json("unknownFatalErr")
   };
 });
@@ -44,9 +34,11 @@ router.get('/get/car/:car', async function(req, res, next) {
     res.json(reservations);
   };
   } catch(err) {
+    console.log(err);
     res.json("unknownFatalErr");
   };
 });
+
 
 router.get('/get/user', async function(req, res, next) {
   try {
@@ -58,14 +50,18 @@ router.get('/get/user', async function(req, res, next) {
       res.json(reservations);
     };
   } catch(err) {
-    res.json("unknownFatalErr")
+    console.log(err);
+    res.json("unknownFatalErr");
   };
 });
+
 
 router.get('/json', async function(req, res, next) {
   const reservations = await Reservation.findAll()
   res.json(reservations);
 });
+
+
 router.get('/add/:car/:start/:stop', async function(req, res, next) {
   // Api params: (car,start,stop) | car :: int | start && stop :: date (in iso YYYY-MM-DD)
   const start_date = new Date(req.params.start);
@@ -133,7 +129,8 @@ router.get('/add/:car/:start/:stop', async function(req, res, next) {
       };
     };
   } catch(err) {
-    res.json("unknownFatalErr")
+    console.log(err);
+    res.json("unknownFatalErr");
   };
 });
 
