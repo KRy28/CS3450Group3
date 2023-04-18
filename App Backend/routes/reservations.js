@@ -29,6 +29,9 @@ router.get('/get', async function(req, res, next) {
 
 router.get('/get/car/:car', async function(req, res, next) {
   const car_id = parseInt(req.params.car);
+  if (car == undefined) {
+    res.json("CarIdErr");
+  } else {
   const reservations = await Reservation.findAll({ where: { car_id: car_id}});
   res.json(reservations);
 });
