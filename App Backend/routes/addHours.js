@@ -22,9 +22,9 @@ router.get('/get', async function(req, res, next) {
         res.json("LoggedOutErr")
       } else {
         // checks for employee than manger than if undefined sends err
-        const person = await Employee.findOne({ where: { person_id: realPerson.id}});
+        var person = await Employee.findOne({ where: { person_id: realPerson.id}});
         if (person == undefined) {
-          const person = await Manager.findOne({ where: { person_id: req.user.id}});
+          var person = await Manager.findOne({ where: { person_id: req.user.id}});
         };
 	
         // error check than reply
@@ -56,9 +56,9 @@ router.get('/add/:amount', async function(req, res, next) {
         res.json("LoggedOutErr")
       } else {
         // checks for employee than manger than if undefined sends err
-        const person = await Employee.findOne({ where: { person_id: realPerson.id}});
+        var person = await Employee.findOne({ where: { person_id: realPerson.id}});
         if (person == undefined) {
-          const person = await Manager.findOne({ where: { person_id: req.user.id}});
+          var person = await Manager.findOne({ where: { person_id: req.user.id}});
         };
 	
         // error check than reply
@@ -88,9 +88,9 @@ router.get('/subtract/:amount', async function(req, res, next) {
         res.json("LoggedOutErr")
       } else {
         // checks for employee than manger than if undefined sends err
-        const person = await Employee.findOne({ where: { person_id: realPerson.id}});
+        var person = await Employee.findOne({ where: { person_id: realPerson.id}});
         if (person == undefined) {
-          const person = await Manager.findOne({ where: { person_id: req.user.id}});
+          var person = await Manager.findOne({ where: { person_id: req.user.id}});
         };
 	
         // error check than reply
