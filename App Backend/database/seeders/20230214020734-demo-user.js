@@ -12,7 +12,7 @@ module.exports = {
        hash: await generateHashedPassword("12345678SUM"),
        username: "WatsonMan",
        wallet: 42069,
-       elevation: 3,
+       elevation: 1,
        createdAt: new Date(),
        updatedAt: new Date(),
     },
@@ -23,7 +23,7 @@ module.exports = {
        hash: await generateHashedPassword("112345678SUM"),
        username: "1WatsonMan",
        wallet: 42069,
-       elevation: 3,
+       elevation: 2,
        createdAt: new Date(),
        updatedAt: new Date(),
 	    
